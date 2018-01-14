@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>answer</title>
+  </head>
+  <body>
+  <input type="checkbox" name="checkbox" value="111">
+<input type="checkbox" name="checkbox" value="222">
+<input type="checkbox" name="checkbox" value="333">
+<input type="checkbox" name="checkbox" value="444">
+<input type="checkbox" name="checkbox" value="555">
+<input type="checkbox" name="checkbox" value="666">
+
+ <input type="checkbox" id="btnDisabled" value="禁用"  />
+
+
+<script type="text/javascript" src="https://a.alipayobjects.com/amui/zepto/1.1.3/zepto.js"></script>
+<script>
+var vModel= [];
+vModel.$remove =function(value){
+  if (!this.length) return;
+   var index = this.indexOf(value);
+  if (index > -1) {
+     return this.splice(index, 1);
+  }
+}
+var  checks = document.querySelectorAll('input[type=checkbox]');
+checks.forEach(function(item){
+  item.addEventListener("change",function(e){
+     if(Array.isArray(vModel)){
+       if(e.target.checked){
+         if(vModel.indexOf(e.target.value)<0){
+           vModel.push(e.target.value)
+         }
+       }else {
+         vModel.$remove(e.target.value)
+       }
+     }
+      console.log(vModel.length);
+      console.log(vModel)
+   })
+ })
+</script>
+  </body>
+</html>
