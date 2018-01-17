@@ -4,8 +4,8 @@ import {Link} from "dva/router"
 
 
 const {SubMenu} = Menu;
-const onOpenChange = () => {
-
+const onOpenChange = (openKeys) => {
+  console.log(openKeys);
 }
 
 const Sider = ()=>(
