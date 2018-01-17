@@ -31,7 +31,7 @@ const columns = [{
 
 
 const data = [];
-for (let i = 0; i < 46; i++) {
+for (let i = 0; i < 36; i++) {
   data.push({
     key: i,
     name: `Edward King ${i}`,
