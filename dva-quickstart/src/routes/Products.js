@@ -4,6 +4,7 @@ import {ProductList} from "components"
 
 const Products = ({ dispatch, products }) => {
   function handleDelete(id) {
+    console.log(dispatch);
     dispatch({
       type: 'products/delete',
       payload: id,
