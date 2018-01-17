@@ -14,12 +14,12 @@ import App from "./routes/main"
 // }
 
 const routes =[{
-  component:Mytable,
-  path:"/mytable"
-},{
-  component:IndexPage,
-  path:"/indexPage"
-}]
+      component:Mytable,
+      path:"/mytable"
+    },{
+       component:IndexPage,
+       path:"/indexPage"
+    }]
 
 const  Routers = function({ history,app }) {
   return (
@@ -28,8 +28,8 @@ const  Routers = function({ history,app }) {
            <Switch>
               <Route
                  exact
-                 path="/"
-                 render={() => (<Redirect to="/indexPage" />)}
+                 path = "/"
+                 render = {() => (<Redirect to="/indexPage" />)}
                />
                 {routes.map(({ path,component },index)=>(
                   <Route
