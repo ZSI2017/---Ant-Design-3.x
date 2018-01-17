@@ -47,7 +47,12 @@ const Mytable = ()=>{
        bordered
        columns={columns}
        dataSource={data}
-       pagination={{showQuickJumper:true}}
+       pagination={{
+            showQuickJumper:true,
+            showSizeChanger:true,
+            defaultPageSize:5,
+            pageSizeOptions:["5","10","20","30"]
+          }}
        />
     )
 }

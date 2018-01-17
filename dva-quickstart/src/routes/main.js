@@ -19,7 +19,7 @@ const Main = ({children}) => {
             <Sider />
             <Layout style={{ padding: '0 24px 24px' }}>
                <Bread />
-               <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
+               <Content style={{ background: '#fff', padding: 24, margin: 0,border:"1px solid rgb(211, 220, 230)" }}>
                  {children}
                </Content>
            </Layout>

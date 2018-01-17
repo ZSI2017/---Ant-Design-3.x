@@ -15,10 +15,11 @@ const Header = ()=>(
       <SubMenu
         style={{
             lineHeight:'64px',
-            borderBottom:0
+            borderBottom:0,
+            backgroundColor:"#108ee9"
          }}
-        title={<span>
-          <Icon type="user"/>
+        title={<span style={{color:"white"}}>
+          <Icon type="user" style={{color:"white"}}/>
            12345676543
           </span>}>
           <Menu.Item key="logout">
