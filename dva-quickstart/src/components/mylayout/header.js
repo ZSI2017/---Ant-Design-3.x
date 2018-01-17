@@ -18,7 +18,8 @@ const Header = ()=>(
             borderBottom:0,
             backgroundColor:"#108ee9"
          }}
-        title={<span style={{color:"white"}}>
+        title={
+          <span style={{color:"white"}}>
           <Icon type="user" style={{color:"white"}}/>
            12345676543
           </span>}>
