@@ -1,6 +1,6 @@
 import React from "react"
 import {Layout,Menu,Breadcrumb,Icon} from "antd"
-import {Link} from "dva/router"
+import {Link} from "react-router-dom"
 
 
 const {SubMenu} = Menu;
@@ -26,8 +26,8 @@ const Sider = ({navOpenKeys,changeOpenKeys})=>{
     style={{height:"100%",broderRight:0}}
     >
         <SubMenu key="sub1" title ={<span><Icon type="user"/>subnav 1</span>}>
-           <Menu.Item key="1"><a href="#/mytable">mytable</a></Menu.Item>
-           <Menu.Item key="2"><a href="#/products">products</a></Menu.Item>
+           <Menu.Item key="1"><Link to="/mytable">mytable</Link></Menu.Item>
+           <Menu.Item key="2"><Link to="/products">products</Link></Menu.Item>
            <Menu.Item key="3"><a href="#/indexPage">indexPage</a>option3</Menu.Item>
            <Menu.Item key="4"><a href="#/myformlayout">form-list</a></Menu.Item>
         </SubMenu>

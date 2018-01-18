@@ -5,28 +5,30 @@ import IndexPage from './routes/IndexPage';
 import Products from './routes/Products';
 import Mytable from "./routes/table"
 import Myformlayout from "./routes/myForm"
-import App from "./routes/main"
+import App from "./routes/index"
+
+const {ConnectedRouter} = routerRedux;
 
 
-const routes =[{
-      component:Mytable,
-      path:"/mytable"
-    },{
-       component:IndexPage,
-       path:"/indexPage"
-    },{
-      component:Products,
-      path:"/products",
-      models:() => [import('./models/products')]
-    },{
-      component:Myformlayout,
-      path:"/myformlayout",
-    }]
 
 const  Routers = function({ history,app }) {
+  const routes =[{
+        path:"/mytable",
+        component:() => import('./routes/table/')
+      },{
+         path:"/indexPage",
+         component:IndexPage
+      },{
+        path:"/products",
+        component:Products,
+        models:() => [import('./models/products')]
+      },{
+        path:"/myformlayout",
+        component:Myformlayout
+      }]
   return (
-    <App>
-      <Router history={history} >
+      <ConnectedRouter history={history} >
+      <App>
            <Switch>
               <Route
                  exact
@@ -39,14 +41,14 @@ const  Routers = function({ history,app }) {
                     path = {path}
                     exact
                     component = {dynamic({
-                      app,
-                      ...dynamics,
-                    })}
+                        app,
+                        ...dynamics,
+                      })}
                   />
                 ))}
            </Switch>
-        </Router>
-     </App>
+           </App>
+        </ConnectedRouter>
   );
 }
 

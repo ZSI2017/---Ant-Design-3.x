@@ -3,7 +3,7 @@ import {Layout,Menu,Icon} from "antd"
 import { Mylayout } from 'components'
 import {connect} from 'dva'
 // import classnames from 'classnames';
-import styles from './main.scss';
+import styles from './index.scss';
 
 const {SubMenu} = Menu;
 const {Content,Footer} = Layout;
