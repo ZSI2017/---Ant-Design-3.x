@@ -2,16 +2,11 @@ import React from 'react';
 import { Router, Route, Switch,Redirect,routerRedux} from 'dva/router';
 import dynamic from "dva/dynamic"
 import IndexPage from './routes/IndexPage';
-// import Products from './routes/Products';
+import Products from './routes/Products';
 import Mytable from "./routes/table"
+import Myformlayout from "./routes/myForm"
 import App from "./routes/main"
 
-
-// ,{
-//   component:Products,
-//   path:"/products",
-//   models:() => import('./models/products')
-// }
 
 const routes =[{
       component:Mytable,
@@ -19,6 +14,13 @@ const routes =[{
     },{
        component:IndexPage,
        path:"/indexPage"
+    },{
+      component:Products,
+      path:"/products",
+      models:() => [import('./models/products')]
+    },{
+      component:Myformlayout,
+      path:"/myformlayout",
     }]
 
 const  Routers = function({ history,app }) {
@@ -31,12 +33,15 @@ const  Routers = function({ history,app }) {
                  path = "/"
                  render = {() => (<Redirect to="/indexPage" />)}
                />
-                {routes.map(({ path,component },index)=>(
+                {routes.map(({ path,...dynamics},index)=>(
                   <Route
                     key = {index}
                     path = {path}
                     exact
-                    component = {component}
+                    component = {dynamic({
+                      app,
+                      ...dynamics,
+                    })}
                   />
                 ))}
            </Switch>
