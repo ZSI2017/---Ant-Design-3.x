@@ -4,14 +4,7 @@ import 'babel-polyfill'
 
 // 1. Initialize
 // const app = dva();
-const app = dva({
-    initialState: {
-      products: [
-        { name: 'dva', id: 1 },
-        { name: 'antd', id: 2 },
-      ],
-    },
-  });
+const app = dva();
 
 // 2. Plugins
 // app.use({});
@@ -22,7 +15,7 @@ const app = dva({
 app.model(require('./models/app').default)
 
 // 4. Router
-app.router(require('./router'))
+app.router(require('./router').default)
 
 // 5. Start
 app.start('#root')

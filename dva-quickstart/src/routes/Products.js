@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'dva';
 import {ProductList} from "components"
 
-const Products = ({ dispatch, products }) => {
+const Products = ({ dispatch, product }) => {
+
+    console.log("productList: ---- "+product)
   function handleDelete(id) {
     console.log(dispatch);
     dispatch({
@@ -13,12 +15,12 @@ const Products = ({ dispatch, products }) => {
   return (
     <div>
       <h2>List of Products</h2>
-      <ProductList onDelete={handleDelete} products={products} />
+      <ProductList onDelete={handleDelete} products={product} />
     </div>
   );
 };
 
 // export default Products;
-export default connect(({ products }) => ({
-  products,
+export default connect(({ product }) => ({
+  product,
 }))(Products);

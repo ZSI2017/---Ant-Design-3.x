@@ -7,48 +7,50 @@ import Mytable from "./routes/table"
 import Myformlayout from "./routes/myForm"
 import App from "./routes/index"
 
-const {ConnectedRouter} = routerRedux;
+const { ConnectedRouter } = routerRedux
 
-
+const routes =[{
+      path:"/mytable",
+      component:() => import("./routes/table")
+    },{
+       path:"/indexPage",
+       component:()=> import("./routes/IndexPage")
+    },{
+      path:"/products",
+      component:() => import("./routes/Products"),
+      models:() => [
+        import('./models/products'),
+      ]
+    },{
+      path:"/myformlayout",
+      component:() => import("./routes/myForm")
+    }]
 
 const  Routers = function({ history,app }) {
-  const routes =[{
-        path:"/mytable",
-        component:() => import('./routes/table/')
-      },{
-         path:"/indexPage",
-         component:IndexPage
-      },{
-        path:"/products",
-        component:Products,
-        models:() => [import('./models/products')]
-      },{
-        path:"/myformlayout",
-        component:Myformlayout
-      }]
+  console.log(app)
   return (
-      <ConnectedRouter history={history} >
-      <App>
+    <ConnectedRouter history={history} >
+    <App>
            <Switch>
               <Route
                  exact
                  path = "/"
                  render = {() => (<Redirect to="/indexPage" />)}
                />
-                {routes.map(({ path,...dynamics},index)=>(
+                {routes.map(({ path,...dynamics },index)=>(
                   <Route
                     key = {index}
                     path = {path}
                     exact
                     component = {dynamic({
-                        app,
-                        ...dynamics,
-                      })}
+                      app,
+                      ...dynamics,
+                    })}
                   />
                 ))}
            </Switch>
-           </App>
-        </ConnectedRouter>
+      </App>
+     </ConnectedRouter>
   );
 }
 
