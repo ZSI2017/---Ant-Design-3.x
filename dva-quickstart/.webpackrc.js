@@ -4,5 +4,7 @@ export default {
   ],
   alias:{
     components: `${__dirname}/src/components`,
+    services:`${__dirname}/src/services`,
+    utils: `${__dirname}/src/utils`,
   }
 }
