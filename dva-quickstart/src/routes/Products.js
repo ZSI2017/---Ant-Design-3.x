@@ -3,6 +3,7 @@ import { connect } from 'dva';
 import {ProductList} from "components"
 
 const Products = ({ dispatch, product }) => {
+  dispatch({ type: 'product/data', payload: "" })
 
     console.log("productList: ---- "+product)
   function handleDelete(id) {

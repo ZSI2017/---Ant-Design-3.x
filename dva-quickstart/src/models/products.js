@@ -3,15 +3,7 @@ import {tableData} from "services/tableData"
 
 export default {
   namespace: 'product',
-  state: [{
-      name: 'dva',
-      id: 1
-    },
-    {
-      name: 'antd',
-      id: 2
-    },
-  ],
+  state: [ ],
   reducers: {
     'delete' (state, {
       payload: id
@@ -23,11 +15,7 @@ export default {
   effects: {
     * data({
       payload,
-    }, {
-      put,
-      call,
-      select
-    }) {
+    }, { put,call, select }) {
       const result = yield call(tableData,payload)
       console.log("from models/products")
       console.log(result);
