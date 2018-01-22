@@ -111,7 +111,7 @@ function checkErrorCode(response) {
         }
       }
     console.log("))))))))))))))))))))");
-     return Promise.resolve({
+    return Promise.resolve({
         success:true,
         message:statusText,
         statusCode:status,
@@ -150,9 +150,8 @@ var request = {
               // headers: {'contentType': "application/json; charset=utf-8"},
               maxRedirects: 5, // default
               proxy:{ }     //  defines the hostname and port of the proxy server
-         }).then(
-             (response) => {
-               mySuccessFn(response)
+         }).then((response) => {
+               return mySuccessFn(response)
              }
          ).catch(
              (error) => {
@@ -182,7 +181,7 @@ var request = {
          )
       },
       get(url,data,successfn,errorfn){
-          axios({
+        return axios({
                 url:url,
                 method:'get',
                 // baseURL:URL,
@@ -195,7 +194,7 @@ var request = {
                          return status>=0 && status  < 600;  // 默认的
                  }
             }).then( (response) => {
-               mySuccessFn(response);
+               return mySuccessFn(response);
             }
           ).catch(
                 (error) => {
