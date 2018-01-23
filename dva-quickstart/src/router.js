@@ -5,6 +5,7 @@ import IndexPage from './routes/IndexPage';
 import Products from './routes/Products';
 import Mytable from "./routes/table"
 import Myformlayout from "./routes/myForm"
+import internalDetailForm from "./routes/detail"
 import App from "./routes/index"
 
 const { ConnectedRouter } = routerRedux
@@ -12,6 +13,9 @@ const { ConnectedRouter } = routerRedux
 const routes =[{
       path:"/mytable",
       component:() => import("./routes/table")
+    },{
+       path:"/mytable/:number",
+       component:() => import("./routes/detail")
     },{
        path:"/indexPage",
        component:()=> import("./routes/IndexPage")
@@ -35,7 +39,7 @@ const  Routers = function({ history,app }) {
               <Route
                  exact
                  path = "/"
-                 render = {() => (<Redirect to="/indexPage" />)}
+                 render = {() => (<Redirect to="/mytable" />)}
                />
                 {routes.map(({ path,...dynamics },index)=>(
                   <Route

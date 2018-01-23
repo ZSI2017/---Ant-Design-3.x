@@ -1,4 +1,5 @@
 import {Table,Icon,Divider} from "antd";
+import {Link} from "react-router-dom"
 
 const columns = [{
   title:"Name",
@@ -18,11 +19,11 @@ const columns = [{
   key:"action",
   render:(text,record) => (
     <span>
-     <a href="#">Action -- {record.name}</a>
+     <Link to={`/mytable/${record.key}`}>Edit</Link>
      <Divider type="vertical" />
-     <a href="#" >Delete </a>
+     <a href="javascript:void(0)" >Delete </a>
      <Divider type="vertical" />
-     <a href="#" className="ant-dropdown-link">
+     <a href="javascript:void(0)" className="ant-dropdown-link">
        More actions <Icon type="down"/>
      </a>
     </span>
