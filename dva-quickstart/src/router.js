@@ -35,7 +35,7 @@ const  Routers = function({ history,app }) {
   return (
     <ConnectedRouter history={history} >
     <App>
-           <Switch>
+        <Switch>
               <Route
                  exact
                  path = "/"
