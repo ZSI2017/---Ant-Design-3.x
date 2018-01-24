@@ -16,24 +16,24 @@ export default {
     locationPathname:"",
     locationQuery:""
   },
-  // subscriptions: {
-  //   // setupHistory({dispatch,history}) {
-  //   //   // history.listen((location)=>{
-  //   //   //   dispatch({
-  //   //   //     type:"updateState",
-  //   //   //     payload:{
-  //   //   //       locationPathname:location.pathname,
-  //   //   //       locationQuery:queryString.parse(location.search),
-  //   //   //     }
-  //   //   //   })
-  //   //   // })
-  //   // }
-  // },
+  subscriptions: {
+    setupHistory({dispatch,history}) {
+      history.listen((location)=>{
+        dispatch({
+          type:"updateState",
+          payload:{
+            locationPathname:location.pathname,
+            locationQuery:location.search,
+          }
+        })
+      })
+    }
+  },
   reducers:{
    'updateState'(state,{payload}) {
      return {
        ...state,
-       ...payload,
+       ...payload
      }
     },
     'handleNavOpenKeys'(state,{payload:navOpenKeys}) {

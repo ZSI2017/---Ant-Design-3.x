@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "roadhog server",
+    "start": "set PORT=3000&&roadhog server",
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
     "precommit": "npm run lint"
@@ -11,6 +11,7 @@
     "axios": "^0.17.1",
     "babel-plugin-import": "^1.6.3",
     "dva": "^2.1.0",
+    "history": "^4.7.2",
     "mockjs": "^1.0.1-beta3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

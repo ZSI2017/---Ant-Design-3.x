@@ -49,7 +49,7 @@ const columns = [
   key:"action",
   render:(text,record) => (
     <span>
-     <Link to={`/mytable/number`}>Edit</Link>
+     <Link to={`/mytable/${record.key}`}>Edit</Link>
      <Divider type="vertical" />
      <a href="javascript:void(0)" >Delete </a>
      <Divider type="vertical" />

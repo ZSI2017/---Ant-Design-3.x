@@ -13,14 +13,15 @@ import App from "./routes/index"
 
 const { ConnectedRouter } = routerRedux
 
-const routes =[{
+const routes =[
+    {
+     path:"/mytable/:number",
+     component:() => import("./routes/detail")
+    },{
       path:"/mytable",
       component:() => import("./routes/table")
     },{
-       path:"/mytable/number",
-       component:() => import("./routes/detail")
-    },{
-       path:"/indexPage",
+       path:"/indexPage/ddd",
        component:()=> import("./routes/IndexPage")
     },{
        path:"/router",
@@ -40,14 +41,11 @@ const  Routers = function({ history,app }) {
   console.log(app)
   return (
     <ConnectedRouter history={history} >
-    <Switch>
     <App>
-            <Route
-                 exact
-                 path = "/"
-                 render = {() => (<Redirect to="/mytable" />)}
-               />
-                {routes.map(({ path,...dynamics },index)=>(
+     <Switch>
+            <Route  exact path = "/"  render = {() => (<Redirect to="/mytable"/>)}/>
+                {
+                  routes.map(({ path,...dynamics },index)=>(
                   <Route
                     key = {index}
                     path = {path}
@@ -58,8 +56,9 @@ const  Routers = function({ history,app }) {
                     })}
                   />
                 ))}
+            <Route component={IndexPage} />
+          </Switch>
       </App>
-      </Switch>
      </ConnectedRouter>
   );
 }
