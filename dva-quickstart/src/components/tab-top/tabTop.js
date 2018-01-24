@@ -1,20 +1,17 @@
 import React from "react";
-import {Tabs,Select} from "antd";
+import {Tabs} from "antd";
 const TabPane = Tabs.TabPane;
-const Option = Select.Optiion;
 
 const Tabdom = ()=>{
 
   return (
-    <div>
-      <Tabs tabPosition = "top">
+      <Tabs tabPosition = "top" type="card">
         {
           ["配置","已上线","待审核"].map((item)=>(
             <TabPane  tab={item} key={item}></TabPane>
           ))
         }
       </Tabs>
-    </div>
   )
 
 }

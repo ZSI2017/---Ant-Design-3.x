@@ -1,4 +1,5 @@
 import dva from "dva";
+import queryString from 'query-string'
 
 export default {
   namespace:'app',
@@ -13,21 +14,21 @@ export default {
     ],
     navOpenKeys:JSON.parse(window.localStorage.getItem("navOpenKeys")) || [],
     locationPathname:"",
-    locationQuery:{}
+    locationQuery:""
   },
-  subscriptions: {
-    setupHistory({dispatch,history}) {
-      history.listen((location)=>{
-        dispatch({
-          type:"updateState",
-          payload:{
-            locationPathname:location.pathname,
-            locationQuery:location.search
-          }
-        })
-      })
-    }
-  },
+  // subscriptions: {
+  //   // setupHistory({dispatch,history}) {
+  //   //   // history.listen((location)=>{
+  //   //   //   dispatch({
+  //   //   //     type:"updateState",
+  //   //   //     payload:{
+  //   //   //       locationPathname:location.pathname,
+  //   //   //       locationQuery:queryString.parse(location.search),
+  //   //   //     }
+  //   //   //   })
+  //   //   // })
+  //   // }
+  // },
   reducers:{
    'updateState'(state,{payload}) {
      return {

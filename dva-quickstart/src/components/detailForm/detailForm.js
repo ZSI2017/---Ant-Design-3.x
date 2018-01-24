@@ -76,27 +76,10 @@ class RegistrationForm extends React.Component {
     const { autoCompleteResult } = this.state;
 
     const formItemLayout = {
-      labelCol: {
-        xs: { span: 6 },
-        sm: { span: 4 },
-      },
-      wrapperCol: {
-        xs: { span: 10 },
-        sm: { span: 12 },
-      },
-    };
-    const tailFormItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 24,
-          offset: 0,
-        },
-        sm: {
-          span: 16,
-          offset: 8,
-        },
-      },
-    };
+      labelCol: { span: 3 },
+      wrapperCol: { span: 10 }
+      };
+
     const prefixSelector = getFieldDecorator('prefix', {
       initialValue: '86',
     })(
@@ -232,15 +215,8 @@ class RegistrationForm extends React.Component {
             </Col>
           </Row>
         </FormItem>
-        <FormItem {...tailFormItemLayout}>
-          {getFieldDecorator('agreement', {
-            valuePropName: 'checked',
-          })(
-            <Checkbox>I have read the <a href="">agreement</a></Checkbox>
-          )}
-        </FormItem>
-        <FormItem {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">Register</Button>
+        <FormItem  wrapperCol={{ span: 3,offset:3 }}>
+          <Button type="primary" htmlType="submit">submit</Button>
         </FormItem>
       </Form>
     );

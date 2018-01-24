@@ -2,6 +2,7 @@ import React from "react"
 import {Layout,Menu,Icon} from "antd"
 import { Mylayout } from 'components'
 import {connect} from 'dva'
+import { Switch} from 'dva/router';
 // import classnames from 'classnames';
 import styles from './index.scss';
 
@@ -11,8 +12,8 @@ const { Header,Sider,Bread} = Mylayout
 
 
 
-const Main = ({children,dispatch,app,location}) => {
-  console.log(location)
+const Main = ({children,dispatch,app,history}) => {
+  // console.log(location)
   const {navOpenKeys} = app
   const siderProps = {
      navOpenKeys,
@@ -28,6 +29,7 @@ const Main = ({children,dispatch,app,location}) => {
             <Sider {...siderProps}/>
             <Layout style={{ padding: '0 24px 24px' }}>
                <Bread />
+               <Switch>
                <Content
                  style= {{
                     background: '#fff',
@@ -36,6 +38,7 @@ const Main = ({children,dispatch,app,location}) => {
                     border:"1px solid rgb(211, 220, 230)" }}>
                  {children}
                </Content>
+               </Switch>
            </Layout>
         </Layout>
      </Layout>
