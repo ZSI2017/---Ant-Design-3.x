@@ -1,21 +1,51 @@
 import {Table,Icon,Divider} from "antd";
 import {Link} from "react-router-dom"
+import { Tabdom,Radiotop} from 'components'
 
-const columns = [{
-  title:"Name",
+const columns = [
+  {
+    title:"运营图名称",
+    dataIndex:"name",
+    key:"name",
+  },{
+    title:"运营图",
+    dataIndex:"name",
+    key:"name",
+    render:text => <img src={text} width={40} height={40}/>,
+},{
+  title:"链接",
   dataIndex:"name",
   key:"name",
-  render:text => <img src={text} width={40} height={40}/>,
 },{
-  title:"Age",
+  title:"覆盖地区",
+  dataIndex:"name",
+  key:"name",
+},{
+  title:"创建时间",
+  dataIndex:"name",
+  key:"name",
+},{
+  title:"修改时间",
+  dataIndex:"name",
+  key:"name",
+},{
+  title:"有效时段",
+  dataIndex:"name",
+  key:"name",
+},{
+  title:"排序值",
   dataIndex:"age",
   key:"age",
 },{
-  title:"Address",
+  title:"状态",
+  dataIndex:"age",
+  key:"age",
+},{
+  title:"审核状态",
   dataIndex:"address",
   key:"address"
 },{
-  title:"Action",
+  title:"操作",
   key:"action",
   render:(text,record) => (
     <span>
@@ -44,17 +74,21 @@ for (let i = 0; i < 36; i++) {
 
 const Mytable = ()=>{
     return (
-      <Table
-       bordered
-       columns={columns}
-       dataSource={data}
-       pagination={{
-            showQuickJumper:true,
-            showSizeChanger:true,
-            defaultPageSize:5,
-            pageSizeOptions:["5","10","20","30"]
-          }}
-       />
+      <div>
+       <Tabdom />
+       <Radiotop />
+        <Table
+         bordered
+         columns={columns}
+         dataSource={data}
+         pagination={{
+              showQuickJumper:true,
+              showSizeChanger:true,
+              defaultPageSize:5,
+              pageSizeOptions:["5","10","20","30"]
+            }}
+         />
+       </div>
     )
 }
 

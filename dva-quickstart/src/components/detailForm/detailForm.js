@@ -77,12 +77,12 @@ class RegistrationForm extends React.Component {
 
     const formItemLayout = {
       labelCol: {
-        xs: { span: 24 },
-        sm: { span: 8 },
+        xs: { span: 6 },
+        sm: { span: 4 },
       },
       wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 },
+        xs: { span: 10 },
+        sm: { span: 12 },
       },
     };
     const tailFormItemLayout = {
@@ -118,12 +118,18 @@ class RegistrationForm extends React.Component {
         >
           {getFieldDecorator('email', {
             rules: [{
-              type: 'email', message: 'The input is not valid E-mail!',
+              type: 'number', message: 'The input is not valid E-mail!',
             }, {
-              required: true, message: 'Please input your E-mail!',
+              required: false, message: 'Please input your E-mail!',
             }],
           })(
-            <Input />
+            <Select>
+                 {
+                   [1,2,3,4].map((item)=>(
+                     <Option value= {item}>{item}</Option>
+                   ))
+                 }
+            </Select>
           )}
         </FormItem>
         <FormItem
@@ -132,7 +138,7 @@ class RegistrationForm extends React.Component {
         >
           {getFieldDecorator('password', {
             rules: [{
-              required: true, message: 'Please input your password!',
+              required: false, message: 'Please input your password!',
             }, {
               validator: this.checkConfirm,
             }],
@@ -146,7 +152,7 @@ class RegistrationForm extends React.Component {
         >
           {getFieldDecorator('confirm', {
             rules: [{
-              required: true, message: 'Please confirm your password!',
+              required: false, message: 'Please confirm your password!',
             }, {
               validator: this.checkPassword,
             }],
@@ -166,7 +172,7 @@ class RegistrationForm extends React.Component {
           )}
         >
           {getFieldDecorator('nickname', {
-            rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
+            rules: [{ required: false, message: 'Please input your nickname!', whitespace: true }],
           })(
             <Input />
           )}
@@ -177,7 +183,7 @@ class RegistrationForm extends React.Component {
         >
           {getFieldDecorator('residence', {
             initialValue: ['zhejiang', 'hangzhou', 'xihu'],
-            rules: [{ type: 'array', required: true, message: 'Please select your habitual residence!' }],
+            rules: [{ type: 'array', required: false, message: 'Please select your habitual residence!' }],
           })(
             <Cascader options={residences} />
           )}
@@ -187,7 +193,7 @@ class RegistrationForm extends React.Component {
           label="Phone Number"
         >
           {getFieldDecorator('phone', {
-            rules: [{ required: true, message: 'Please input your phone number!' }],
+            rules: [{ required: false, message: 'Please input your phone number!' }],
           })(
             <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
           )}
@@ -197,7 +203,7 @@ class RegistrationForm extends React.Component {
           label="Website"
         >
           {getFieldDecorator('website', {
-            rules: [{ required: true, message: 'Please input website!' }],
+            rules: [{ required: false, message: 'Please input website!' }],
           })(
             <AutoComplete
               dataSource={websiteOptions}
@@ -216,7 +222,7 @@ class RegistrationForm extends React.Component {
           <Row gutter={8}>
             <Col span={12}>
               {getFieldDecorator('captcha', {
-                rules: [{ required: true, message: 'Please input the captcha you got!' }],
+                rules: [{ required: false, message: 'Please input the captcha you got!' }],
               })(
                 <Input />
               )}

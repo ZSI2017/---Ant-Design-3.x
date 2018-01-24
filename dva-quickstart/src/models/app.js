@@ -30,7 +30,6 @@ export default {
   },
   reducers:{
    'updateState'(state,{payload}) {
-     console.log("updateState");
      return {
        ...state,
        ...payload,
