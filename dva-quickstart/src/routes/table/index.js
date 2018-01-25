@@ -72,7 +72,7 @@ for (let i = 0; i < 36; i++) {
 }
 
 
-const Mytable = ()=>{
+const Mytable = ({children})=>{
     return (
       <div>
        <Tabdom />
