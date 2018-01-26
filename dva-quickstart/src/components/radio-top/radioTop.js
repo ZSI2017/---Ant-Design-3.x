@@ -1,8 +1,8 @@
 import React from "react";
-import {Radio,Button} from "antd";
+import {Radio,Button,message} from "antd";
 import { RouteContext } from 'react-router'
-import {BrowserRouter } from 'react-router-dom'
-import reactMixin from "react-mixin"
+import {BrowserRouter,Link } from 'react-router-dom'
+import { routerRedux } from "dva/router"
 
 const RadioGroup = Radio.Group;
 
@@ -11,14 +11,12 @@ class Radiotop extends React.Component {
     value:"审核通过"
   }
   handleBtnClick = () => {
-    try{
-      BrowserRouter.push('/mytable/number');
-    }catch(e) {
-      console.log(reactMixin);
-    }
+    console.log(this.props)
+    this.props.history.push('/mytable/number')
   }
   onChange = (e) => {
     console.log("radio checked",e.target.value);
+    message.info(e.target.value);
     this.setState({
       value:e.target.value
     });

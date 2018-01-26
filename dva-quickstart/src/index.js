@@ -1,7 +1,8 @@
 import dva from 'dva';
 import './index.css';
 import 'babel-polyfill'
-import createHistory from 'history/createBrowserHistory'
+// import createHistory from 'history/createBrowserHistory'
+import createHistory from 'history/createHashHistory'
 
 // 1. Initialize
 // const app = dva();

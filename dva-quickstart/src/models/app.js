@@ -14,7 +14,7 @@ export default {
     ],
     navOpenKeys:JSON.parse(window.localStorage.getItem("navOpenKeys")) || [],
     locationPathname:"",
-    locationQuery:""
+    locationQuery:{}
   },
   subscriptions: {
     setupHistory({dispatch,history}) {
@@ -23,7 +23,7 @@ export default {
           type:"updateState",
           payload:{
             locationPathname:location.pathname,
-            locationQuery:location.search,
+            locationQuery:queryString.parse(location.search),
           }
         })
       })
