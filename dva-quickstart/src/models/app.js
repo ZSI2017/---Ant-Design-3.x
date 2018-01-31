@@ -1,5 +1,6 @@
 import dva from "dva";
 import queryString from 'query-string'
+import { getmenu } from "services/menu"
 
 export default {
   namespace:'app',
@@ -43,4 +44,22 @@ export default {
       }
     },
   },
+  effects:{
+      * query({
+         payload,
+      },{put,call,select}) {
+        const result = yield call(getmenu,payload);
+
+        console.log(result);
+        const {success,list} = result
+        if(success) {
+          yield put({
+            type:"updateState",
+            payload:{
+              menu:list
+            }
+          })
+        }
+      }
+  }
 };

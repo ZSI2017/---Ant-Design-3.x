@@ -14,9 +14,52 @@ const { Header,Sider,Bread} = Mylayout
 
 const Main = ({children,dispatch,app,history}) => {
   // console.log(location)
-  const {navOpenKeys} = app
+  // dispatch({
+  //   type: 'app/query'
+  // });
+  const {navOpenKeys,menu} = app;
+  menu = [
+             {
+              id:'1',
+              bpid:"1",
+              route:"subnav 1"
+            },{
+              id:"21",
+              bpid:"2",
+              mpid:"1",
+              name:"mytable",
+              icon:"",
+              route:'/mytable'
+            },{
+              id:"22",
+              bpid:"2",
+              mpid:"1",
+              name:"products",
+              icon:"",
+              route:'/products'
+            },{
+              id:"23",
+              bpid:"3",
+              mpid:"1",
+              name:"IndexPage",
+              icon:"",
+              route:'/router'
+            },{
+              id:"24",
+              bpid:"4",
+              mid:"1",
+              name:"myformlayout",
+              route:"/myformlayout"
+            },{
+              id:"2",
+              bpid:"2",
+              name:"sub2"
+            }
+      ]
+
   const siderProps = {
      navOpenKeys,
+     menu,
      changeOpenKeys(openKeys) {
       window.localStorage.setItem("navOpenKeys", JSON.stringify(openKeys))
       dispatch({type:'app/handleNavOpenKeys',payload:{navOpenKeys:openKeys}})

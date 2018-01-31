@@ -7,7 +7,46 @@ export default {
     {
       name: 'antd',
       id: 2
-}],
+    }],
+
+'GET /api/menuList':[
+           {
+            id:'1',
+            bpid:"1",
+            route:"subnav 1"
+          },{
+            id:"21",
+            bpid:"2",
+            mpid:"1",
+            name:"mytable",
+            icon:"",
+            route:'/mytable'
+          },{
+            id:"22",
+            bpid:"2",
+            mpid:"1",
+            name:"products",
+            icon:"",
+            route:'/products'
+          },{
+            id:"23",
+            bpid:"3",
+            mpid:"1",
+            name:"IndexPage",
+            icon:"",
+            route:'/router'
+          },{
+            id:"24",
+            bpid:"4",
+            mid:"1",
+            name:"myformlayout",
+            route:"/myformlayout"
+          },{
+            id:"2",
+            bpid:"2",
+            name:"sub2"
+          }
+    ],
 
   // GET POST 可省略
   '/api/users/1': { id: 1 },
