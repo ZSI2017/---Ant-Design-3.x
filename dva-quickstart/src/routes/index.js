@@ -17,8 +17,8 @@ const Main = ({children,dispatch,app,history}) => {
   // dispatch({
   //   type: 'app/query'
   // });
-  const {navOpenKeys,menu} = app;
-  menu = [
+  const {navOpenKeys} = app;
+  let  menu = [
              {
               id:'1',
               bpid:"1",

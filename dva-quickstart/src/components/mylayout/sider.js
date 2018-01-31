@@ -7,7 +7,6 @@ const {SubMenu} = Menu;
 
 
 const Sider = ({navOpenKeys,changeOpenKeys,menu})=>{
-  console.log(menu)
   const menuTree = menu
   const onOpenChange = (openKeys) => {
     let nextOpenKeys = [];
@@ -27,10 +26,10 @@ const Sider = ({navOpenKeys,changeOpenKeys,menu})=>{
       defaultOpenKeys={navOpenKeys}
       style={{height:"100%",broderRight:0}}
       >
-        menuTree.map((item) => {
-
-        })
-
+      {  // menuTree.map((item) => {
+        //
+        // })
+    }
           <SubMenu key="sub1" title ={<span><Icon type="user"/>subnav 1</span>}>
              <Menu.Item key="1"><Link to="/mytable">mytable</Link></Menu.Item>
              <Menu.Item key="2"><Link to="/products">products</Link></Menu.Item>
