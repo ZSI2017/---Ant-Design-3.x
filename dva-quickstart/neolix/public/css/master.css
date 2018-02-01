@@ -1,0 +1,78 @@
+body{
+	font:14px/24px Helvetica,Arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑",STHeiti,"华文细黑",sans-serif;
+	background:blue;
+	color:#333;
+	margin:0;
+	padding:0;
+	zoom: 1;
+}
+html,body{
+		width: 100%;
+		height: 100%;
+
+}
+h1,h2,h3,h4,h5,h6,i,samp,strong,span,a,th,input,select,textarea,address,cite,code,em,label,p,button{font-family:Helvetica,Arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑",STHeiti,"华文细黑",sans-serif;font-weight:300;}
+html,body,h1,h2,h3,h4,h5,h6,hr,p,iframe,dl,dt,dd,ul,ol,li,pre,form,button,input,textarea,th,td,fieldset{margin:0;padding:0}
+*{word-wrap:break-word}
+html,body{*position:static}
+a{color:#2d374b;text-decoration:none;}
+a:hover{text-decoration:none;}
+i,em{
+	font-style:normal;
+}
+body{
+	/* min-width: 1400px; */
+}
+/*  头部 */
+.header {
+	width:100%;
+	height:200px;
+	background-color: yellow;
+
+}
+.box {
+	height:100%;
+	width:100%;
+	background-color: grey;
+}
+
+/* 内容  */
+.content {
+	position: absolute !important;
+	top:200px;
+	right:0;
+	left:0;
+	bottom:0;
+	width:1120px;
+  min-width:1280px;
+	/* height:100%; */
+	box-sizing: border-box;
+	margin:0  auto;
+	/* padding-top:200px; */
+	background-color: black;
+}
+
+/* 尾部  */
+.footer {
+	position: absolute !important;
+	right:0;
+	left:0;
+	bottom:0;
+	z-index: 9999;
+	background-color: rgba(52, 52, 52, .2);
+}
+.footer-container {
+	/* width:1126px; */
+	margin:0 auto;
+  padding:15px 0;
+	z-index:999;
+	text-align: center;
+}
+
+.footer-container img {
+	vertical-align:middle;
+}
+
+.footer-container a {
+	margin:0 20px 0 5px;
+}
