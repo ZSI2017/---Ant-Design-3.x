@@ -6,7 +6,7 @@ import {Link} from "react-router-dom"
 const {SubMenu} = Menu;
 
 
-const Sider = ({navOpenKeys,changeOpenKeys,menu})=>{
+const Sider = ({navOpenKeys,changeOpenKeys,menu,location,history})=>{
   const menuTree = menu
   const onOpenChange = (openKeys) => {
     let nextOpenKeys = [];
@@ -15,15 +15,37 @@ const Sider = ({navOpenKeys,changeOpenKeys,menu})=>{
     changeOpenKeys(nextOpenKeys)
   }
 
+  // 寻找默认选中的导航栏
+  let currentMenu,defaultSelectedKeys;
+  const getCurrentMenu = (menuTree)=> {
+      menuTree.forEach((items) => {
+        if(items.children){
+          getCurrentMenu(items.children)
+        }else {
+          if(items.route.indexOf(location.pathname)>-1){
+            currentMenu = items;
+          }
+        }
+      })
+  }
+  getCurrentMenu(menuTree);
 
+  if(currentMenu){
+    defaultSelectedKeys = [String(currentMenu["id"])]
+    if(currentMenu.mpid){
+      defaultSelectedKeys.unshift(menuTree[parseFloat(currentMenu.mpid)-1]["id"])
+    }
+  }
+  if(!defaultSelectedKeys){
+    defaultSelectedKeys = ["1"]
+  }
   return (
     <Layout.Sider width={200} style={{background:"#fff"}}>
      <Menu
       onOpenChange = {onOpenChange}
-      openKeys={navOpenKeys}
       mode="inline"
-      defaultSelectedKeys={['sub1','1']}
-      defaultOpenKeys={navOpenKeys}
+      openKeys = {navOpenKeys}
+      selectedKeys = {defaultSelectedKeys}
       style={{height:"100%",broderRight:0}}
       >
       {
@@ -40,9 +62,11 @@ const Sider = ({navOpenKeys,changeOpenKeys,menu})=>{
               )
             }else {
                return (
-                 <Menu.Item key={idx} >
+                 <Menu.Item key={item.id} >
+                  <Link to={item.route}>
                     <Icon type={item.icon} />
                      {item.name}
+                  </Link>
                  </Menu.Item>
                )
             }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NEOLIX.AI</title>
+    <style lang="">
+        * {
+            padding: 0px;
+            margin: 0px;
+            text-align: left;
+            font-family:Arial, Verdana, Tahoma, "宋体", Helvetica, sans-serif;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        } 
+        section {
+            min-width: 1280px;
+            width:100%;
+            height: 99.5%;
+            /* background-image: url(images/ping.png);
+            background-position: center 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            -webkit-background-size: contain;
+            zoom: 1; */
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <img class="img2" src="1111.png" alt="ping">
+    </section>
+
+    <script src="jquery-1.4.1.min.js"></script>
+    <script>
+        // 根据屏幕可见区域判断显示图片
+        if (document.body.clientWidth <= 1280){
+            $('.img2').fadeIn().attr('src','3333neolix-1280.png');
+        }else  if (document.body.clientWidth <= 1600){
+            $('.img2').attr('src','3333neolix-1280.png');
+        }else if (document.body.clientWidth <= 1900){
+            $('.img2').attr('src','1111.png');
+        }else {
+            $('.img2').fadeIn().attr('src','2222neolix-1920.png');
+        }
+
+    </script>
+</body>
+</html>

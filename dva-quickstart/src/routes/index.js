@@ -12,7 +12,7 @@ const { Header,Sider,Bread} = Mylayout
 
 
 
-const Main = ({children,dispatch,app,history}) => {
+const Main = ({children,dispatch,app,history,location}) => {
   // console.log(location)
   // dispatch({
   //   type: 'app/query'
@@ -30,54 +30,48 @@ const Main = ({children,dispatch,app,history}) => {
                   id:"21",
                   bpid:"2",
                   mpid:"1",
-                  name:"mytable",
+                  name:"首页管理",
                   icon:"",
                   route:'/mytable'
                 },{
                   id:"22",
                   bpid:"2",
                   mpid:"1",
-                  name:"products",
+                  name:"选择快递",
                   icon:"",
                   route:'/products'
                 },{
                   id:"23",
                   bpid:"3",
                   mpid:"1",
-                  name:"IndexPage",
+                  name:"选快递下单",
                   icon:"",
                   route:'/router'
-                },{
-                  id:"24",
-                  bpid:"4",
-                  mid:"1",
-                  name:"myformlayout",
-                  route:"/myformlayout"
                 }]
             },{
               id:"2",
               bpid:"2",
               name:"公告管理",
               icon:"calendar",
-              children:[
-                {
-                  id:"24",
-                  bpid:"4",
-                  mid:"1",
-                  name:"myformlayout",
-                  route:"/myformlayout"
-                }
-              ]
+              route:"/myformlayout"
+
             }
       ]
 
   const siderProps = {
      navOpenKeys,
      menu,
+     location,
+     history,
      changeOpenKeys(openKeys) {
       window.localStorage.setItem("navOpenKeys", JSON.stringify(openKeys))
       dispatch({type:'app/handleNavOpenKeys',payload:{navOpenKeys:openKeys}})
      }
+   }
+
+   const breadProps = {
+     menu,
+     location
    }
    return (
      <Layout style={{height:"100%"}}>
@@ -85,7 +79,7 @@ const Main = ({children,dispatch,app,history}) => {
         <Layout>
             <Sider {...siderProps}/>
             <Layout style={{ padding: '0 24px 24px' }}>
-               <Bread />
+               <Bread {...breadProps} />
                <Switch>
                <Content
                  style= {{
