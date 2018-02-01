@@ -6,7 +6,7 @@ import {Link} from "react-router-dom"
 const {SubMenu} = Menu;
 
 
-const Sider = ({navOpenKeys,changeOpenKeys,menu})=>{
+const Sider = ({navOpenKeys,changeOpenKeys,menu,location,history})=>{
   const menuTree = menu
   const onOpenChange = (openKeys) => {
     let nextOpenKeys = [];
@@ -15,34 +15,63 @@ const Sider = ({navOpenKeys,changeOpenKeys,menu})=>{
     changeOpenKeys(nextOpenKeys)
   }
 
+  // 寻找默认选中的导航栏
+  let currentMenu,defaultSelectedKeys;
+  const getCurrentMenu = (menuTree)=> {
+      menuTree.forEach((items) => {
+        if(items.children){
+          getCurrentMenu(items.children)
+        }else {
+          if(items.route.indexOf(location.pathname)>-1){
+            currentMenu = items;
+          }
+        }
+      })
+  }
+  getCurrentMenu(menuTree);
 
+  if(currentMenu){
+    defaultSelectedKeys = [String(currentMenu["id"])]
+    if(currentMenu.mpid){
+      defaultSelectedKeys.unshift(menuTree[parseFloat(currentMenu.mpid)-1]["id"])
+    }
+  }
+  if(!defaultSelectedKeys){
+    defaultSelectedKeys = ["1"]
+  }
   return (
     <Layout.Sider width={200} style={{background:"#fff"}}>
      <Menu
       onOpenChange = {onOpenChange}
-      openKeys={navOpenKeys}
       mode="inline"
-      defaultSelectedKeys={['sub1','1']}
-      defaultOpenKeys={navOpenKeys}
+      openKeys = {navOpenKeys}
+      selectedKeys = {defaultSelectedKeys}
       style={{height:"100%",broderRight:0}}
       >
-      {  // menuTree.map((item) => {
-        //
-        // })
-    }
-          <SubMenu key="sub1" title ={<span><Icon type="user"/>subnav 1</span>}>
-             <Menu.Item key="1"><Link to="/mytable">mytable</Link></Menu.Item>
-             <Menu.Item key="2"><Link to="/products">products</Link></Menu.Item>
-             <Menu.Item key="3"><Link to="/indexPage">IndexPage</Link></Menu.Item>
-             <Menu.Item key="4"><Link to="/router">react-router</Link></Menu.Item>
-             <Menu.Item key="5"><Link to="/myformlayout">form-list</Link></Menu.Item>
-          </SubMenu>
-          <SubMenu key="sub2" title ={<span><Icon type="laptop"/>subnav 2</span>}>
-             <Menu.Item key="6">option6</Menu.Item>
-             <Menu.Item key="7">option7</Menu.Item>
-             <Menu.Item key="8">option8</Menu.Item>
-             <Menu.Item key="9">option9</Menu.Item>
-          </SubMenu>
+      {
+          menuTree.map((item,idx)=> {
+            if(item.children){
+                return (
+                  <SubMenu key={idx} title={<span><Icon type={item.icon}/>{item.name}</span>}>
+                    {
+                     item.children.map((im,idx) => (
+                       <Menu.Item key={im.id}><Link to={im.route}>{im.name}</Link></Menu.Item>
+                     ))
+                     }
+                  </SubMenu>
+              )
+            }else {
+               return (
+                 <Menu.Item key={item.id} >
+                  <Link to={item.route}>
+                    <Icon type={item.icon} />
+                     {item.name}
+                  </Link>
+                 </Menu.Item>
+               )
+            }
+          })
+      }
         </Menu>
       </Layout.Sider>
   )
