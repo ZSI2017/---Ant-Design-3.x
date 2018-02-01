@@ -22,38 +22,52 @@ const Main = ({children,dispatch,app,history}) => {
              {
               id:'1',
               bpid:"1",
-              route:"subnav 1"
-            },{
-              id:"21",
-              bpid:"2",
-              mpid:"1",
-              name:"mytable",
-              icon:"",
-              route:'/mytable'
-            },{
-              id:"22",
-              bpid:"2",
-              mpid:"1",
-              name:"products",
-              icon:"",
-              route:'/products'
-            },{
-              id:"23",
-              bpid:"3",
-              mpid:"1",
-              name:"IndexPage",
-              icon:"",
-              route:'/router'
-            },{
-              id:"24",
-              bpid:"4",
-              mid:"1",
-              name:"myformlayout",
-              route:"/myformlayout"
+              route:"subnav 1",
+              name:"运营位管理",
+              icon:"appstore",
+              children:[
+                {
+                  id:"21",
+                  bpid:"2",
+                  mpid:"1",
+                  name:"mytable",
+                  icon:"",
+                  route:'/mytable'
+                },{
+                  id:"22",
+                  bpid:"2",
+                  mpid:"1",
+                  name:"products",
+                  icon:"",
+                  route:'/products'
+                },{
+                  id:"23",
+                  bpid:"3",
+                  mpid:"1",
+                  name:"IndexPage",
+                  icon:"",
+                  route:'/router'
+                },{
+                  id:"24",
+                  bpid:"4",
+                  mid:"1",
+                  name:"myformlayout",
+                  route:"/myformlayout"
+                }]
             },{
               id:"2",
               bpid:"2",
-              name:"sub2"
+              name:"公告管理",
+              icon:"calendar",
+              children:[
+                {
+                  id:"24",
+                  bpid:"4",
+                  mid:"1",
+                  name:"myformlayout",
+                  route:"/myformlayout"
+                }
+              ]
             }
       ]
 

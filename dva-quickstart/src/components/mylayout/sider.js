@@ -26,23 +26,28 @@ const Sider = ({navOpenKeys,changeOpenKeys,menu})=>{
       defaultOpenKeys={navOpenKeys}
       style={{height:"100%",broderRight:0}}
       >
-      {  // menuTree.map((item) => {
-        //
-        // })
-    }
-          <SubMenu key="sub1" title ={<span><Icon type="user"/>subnav 1</span>}>
-             <Menu.Item key="1"><Link to="/mytable">mytable</Link></Menu.Item>
-             <Menu.Item key="2"><Link to="/products">products</Link></Menu.Item>
-             <Menu.Item key="3"><Link to="/indexPage">IndexPage</Link></Menu.Item>
-             <Menu.Item key="4"><Link to="/router">react-router</Link></Menu.Item>
-             <Menu.Item key="5"><Link to="/myformlayout">form-list</Link></Menu.Item>
-          </SubMenu>
-          <SubMenu key="sub2" title ={<span><Icon type="laptop"/>subnav 2</span>}>
-             <Menu.Item key="6">option6</Menu.Item>
-             <Menu.Item key="7">option7</Menu.Item>
-             <Menu.Item key="8">option8</Menu.Item>
-             <Menu.Item key="9">option9</Menu.Item>
-          </SubMenu>
+      {
+          menuTree.map((item,idx)=> {
+            if(item.children){
+                return (
+                  <SubMenu key={idx} title={<span><Icon type={item.icon}/>{item.name}</span>}>
+                    {
+                     item.children.map((im,idx) => (
+                       <Menu.Item key={im.id}><Link to={im.route}>{im.name}</Link></Menu.Item>
+                     ))
+                     }
+                  </SubMenu>
+              )
+            }else {
+               return (
+                 <Menu.Item key={idx} >
+                    <Icon type={item.icon} />
+                     {item.name}
+                 </Menu.Item>
+               )
+            }
+          })
+      }
         </Menu>
       </Layout.Sider>
   )
