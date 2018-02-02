@@ -4,7 +4,7 @@ var fs = require('fs');
 var file = 'index.html'
 var index = fs.readFileSync(file);
 var app = express();
-app.use(express.static('public'));
+app.use('/public', express.static('public'));
 
 
 app.get('/', function (req, res) {
