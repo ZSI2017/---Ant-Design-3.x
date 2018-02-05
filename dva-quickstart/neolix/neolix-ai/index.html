@@ -3,9 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <title>新石器官网</title>
+  <title>新石器科技官网</title>
   <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
   <link rel="stylesheet" href="/public/css/master.css">
 </head>
 
@@ -34,11 +35,14 @@
   </div>
   <script>
     (function(){
-      window.onload= function(){
+      // window.onload= function(){
         try{
-          if(document.documentElement.clientWidth <=1280) {
+          if (document.documentElement.clientWidth <=760){
+            qsa(".content img").src="/public/images/mobile/car.png"
+            qsa(".sub-header img").src="/public/images/mobile/comingsoon.png"
+          }else if(document.documentElement.clientWidth <=1280) {
              qsa(".content img").src="/public/images/1280/car1280.png";
-             qsa(".sub-header img").src="/public/images/1280/coming-soon1280.png"
+             qsa(".sub-header img").src="/public/images/1280/coming-soon1280.png";
              qsa(".header img").src="/public/images/1280/logo1280.png"
           }
           document.querySelectorAll("img").forEach(function(item){
@@ -49,7 +53,7 @@
              item.style.visibility="visible";
           })
         }
-      }
+      // }
       function qsa(args){
          return document.querySelector(args)
       }

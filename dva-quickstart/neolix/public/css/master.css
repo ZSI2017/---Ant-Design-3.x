@@ -43,19 +43,6 @@ i, em {
   font-style: normal;
 }
 
-body {
-  background: url("/public/images/bg1920.png") no-repeat;
-  background-size: 100% 100%;
-  /* min-width: 1400px; */
-}
-
-@media screen and (max-width: 1280px) {
-  body {
-    background: url("/public/images/1280/bg1280.png") no-repeat;
-    background-size: 100% 100%;
-  }
-}
-
 img {
   visibility: hidden;
 }
@@ -91,7 +78,6 @@ img {
   box-sizing: border-box;
   margin: 0 auto;
   background-color: black;
-  z-index: -1;
   background-color: rgba(52, 52, 52, 0);
 }
 
@@ -107,6 +93,49 @@ img {
   -webkit-animation: start 1.5s ease-in-out;
   -o-animation: start 1.5s ease-in-out;
   -ms-animation: start 1.5s ease-in-out;
+}
+
+@-webkit-keyframes start {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+    /* -webkit-transform: translate(0, 10px); */
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+    /* -webkit-transform: translate(0, 0); */
+  }
+  100% {
+    opacity: 1;
+    /* -webkit-transform: translate(0, -8px); */
+  }
+}
+
+@-ms-keyframes start {
+  0% {
+    opacity: 0;
+    -khtml-opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+    /* -webkit-transform: translate(0, 10px); */
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+    /* -webkit-transform: translate(0, 0); */
+  }
+  100% {
+    opacity: 1;
+    /* -webkit-transform: translate(0, -8px); */
+  }
 }
 
 @keyframes start {
@@ -179,4 +208,58 @@ img {
 
 .footer-container p {
   color: #fff;
+}
+
+@media screen and (min-width:1281px) {
+  body {
+    background: url("/public/images/bg1920.png") no-repeat;
+    background-size: 100% 100%;
+    /* min-width: 1400px; */
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  body {
+    background: url("/public/images/1280/bg1280.png") no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  body {
+    background: url("/public/images/mobile/bg-m.png") no-repeat;
+    background-size: 100% 100%;
+  }
+  .header {
+    display: none;
+  }
+  .sub-header {
+    padding-left: 10px;
+  }
+  .sub-header img {
+    width: 257.5px;
+    animation: start 2s ease-out;
+    -moz-animation: start 2s ease-out;
+    -webkit-animation: start 2s ease-out;
+    -o-animation: start 2s ease-out;
+    -ms-animation: start 2s ease-out;
+  }
+  .content img {
+    height: auto;
+    width: 100%;
+    animation: start 2s ease-out;
+    -moz-animation: start 2s ease-out;
+    -webkit-animation: start 2s ease-out;
+    -o-animation: start 2s ease-out;
+    -ms-animation: start 2s ease-out;
+  }
+  .footer-container {
+    /* width:1126px; */
+    padding: 8px 10px;
+  }
+  .footer-container p {
+    font-size: 10px;
+    color: #fff;
+    line-height: 18px;
+  }
 }
