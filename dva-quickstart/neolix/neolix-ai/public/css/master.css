@@ -77,6 +77,7 @@ img {
   /* min-width: 1585px; */
   box-sizing: border-box;
   margin: 0 auto;
+  text-align: center;
   background-color: black;
   background-color: rgba(52, 52, 52, 0);
 }
@@ -95,7 +96,7 @@ img {
   -ms-animation: start 1.5s ease-in-out;
 }
 
-@-webkit-keyframes start {
+@-webkit-keyframes start1 {
   0% {
     opacity: 0;
   }
@@ -116,7 +117,7 @@ img {
   }
 }
 
-@-ms-keyframes start {
+@-ms-keyframes start1 {
   0% {
     opacity: 0;
     -khtml-opacity: 0;
@@ -138,7 +139,7 @@ img {
   }
 }
 
-@keyframes start {
+@keyframes start1 {
   0% {
     opacity: 0;
   }
@@ -210,51 +211,154 @@ img {
   color: #fff;
 }
 
-@media screen and (min-width:1281px) {
-  body {
-    background: url("/public/images/bg1920.png") no-repeat;
-    background-size: 100% 100%;
-    /* min-width: 1400px; */
+body {
+  background: url("/public/images/02-06/bg.png") no-repeat;
+  background-size: 100% 100%;
+  /* min-width: 1400px; */
+}
+
+/* 滚动条 */
+
+/* 假设.device的宽度是设备的宽度*/
+
+.device {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 4.8%;
+  transform: translate(-50%, -110%);
+}
+
+.marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 125px;
+}
+
+.marquee>.get-marquee-width {
+  position: relative;
+}
+
+.marquee>.get-marquee-width>.marquee-move {
+  -webkit-animation: marquee 7s linear 0.5s infinite;
+  -o-animation: marquee 7s linear 0.5s infinite;
+  animation: marquee 7s linear 0.5s infinite;
+  position: absolute;
+  width: 100%;
+  left: 100%;
+  /* padding-left: 50px; */
+  white-space: nowrap;
+}
+
+.marquee>.get-marquee-width>.marquee-move img {
+  width: 100%;
+  height: auto;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    left: 100%;
   }
+  100% {
+    left: -100%;
+  }
+}
+
+@-moz-keyframes marquee {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@-o-keyframes marquee {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@media screen and (min-width:1281px) {
+  /* body {
+    background: url("/public/images/02-06/bg.png") no-repeat;
+    background-size: 100% 100%; */
+  /* min-width: 1400px; */
+  /* } */
 }
 
 @media screen and (max-width: 1280px) {
-  body {
-    background: url("/public/images/1280/bg1280.png") no-repeat;
+  /* body {
+    background: url("/public/images/02-06/bg.png") no-repeat;
     background-size: 100% 100%;
-  }
+  } */
 }
 
 @media only screen and (max-width: 760px) {
-  body {
-    background: url("/public/images/mobile/bg-m.png") no-repeat;
-    background-size: 100% 100%;
-  }
   .header {
     display: none;
   }
-  .sub-header {
-    padding-left: 10px;
+  @media screen and (orientation: portrait) {
+    /*竖屏 css*/
+    body {
+      background: url("/public/images/mobile/bg.png") no-repeat;
+      background-size: 100% 100%;
+    }
+    #car {
+      height: auto;
+      width: 100%;
+      margin-top: 25%;
+    }
+    .device {
+      top: 0;
+      left: 50%;
+      margin-top: 48%;
+      height: 4.8%;
+      transform: translate(-50%, 150%);
+    }
+    .footer-container {
+      padding: 8px 10px;
+    }
+    .footer-container p {
+      font-size: 10px;
+      color: #fff;
+      line-height: 18px;
+    }
   }
-  .sub-header img {
-    width: 257.5px;
-    animation: start 2s ease-out;
-    -moz-animation: start 2s ease-out;
-    -webkit-animation: start 2s ease-out;
-    -o-animation: start 2s ease-out;
-    -ms-animation: start 2s ease-out;
+}
+
+@media screen and (orientation: landscape) and (max-height:500px) {
+  /*横屏 css*/
+  body {
+    background: url("/public/images/mobile/orientation/bg.png") no-repeat;
+    background-size: 100% 100%;
   }
-  .content img {
-    height: auto;
-    width: 100%;
-    animation: start 2s ease-out;
-    -moz-animation: start 2s ease-out;
-    -webkit-animation: start 2s ease-out;
-    -o-animation: start 2s ease-out;
-    -ms-animation: start 2s ease-out;
+  #car {
+    height: 100%;
+    width: auto;
+    margin-top: 0;
+  }
+  .device {
+    top: 34%;
+    left: 50%;
+    /* margin-top: 15%; */
+    height: 4.8%;
+    transform: translate(-50%, -40%);
   }
   .footer-container {
-    /* width:1126px; */
     padding: 8px 10px;
   }
   .footer-container p {

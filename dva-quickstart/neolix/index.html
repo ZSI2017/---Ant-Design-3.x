@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
   <link rel="stylesheet" href="/public/css/master.css">
+
 </head>
 
 <body>
@@ -15,12 +16,23 @@
      <img src="/public/images/logo.png" alt="新石器logo">
   </div>
 
-  <div class="sub-header">
+  <!-- <div class="sub-header">
       <img src="/public/images/coming-soon.png" alt="come soon">
-  </div>
+  </div> -->
 
   <div class="content">
-    <img src="/public/images/car1920.png" alt="新石器">
+    <!-- <img src="/public/images/car1920.png" alt="新石器"> -->
+    <img id="car" src="/public/images/02-06/car.png" alt="新石器">
+    <div class="device logo">
+      <div class="navTitle marquee">
+        <div class="get-marquee-width">
+          <div class="marquee-move">
+          <!-- 这里的span 仅仅是为了获得问题内容的长度用的,也可以换成其他的行内元素-->
+           <span><img src="/public/images/02-06/text.png"/></span>
+          </div>
+        </div>
+      </div>
+     </div>
 
     <!-- <div class="header">
    </div> -->
@@ -33,32 +45,7 @@
       </p>
     </div>
   </div>
-  <script>
-    (function(){
-      // window.onload= function(){
-        try{
-          if (document.documentElement.clientWidth <=760){
-            qsa(".content img").src="/public/images/mobile/car.png"
-            qsa(".sub-header img").src="/public/images/mobile/comingsoon.png"
-          }else if(document.documentElement.clientWidth <=1280) {
-             qsa(".content img").src="/public/images/1280/car1280.png";
-             qsa(".sub-header img").src="/public/images/1280/coming-soon1280.png";
-             qsa(".header img").src="/public/images/1280/logo1280.png"
-          }
-          document.querySelectorAll("img").forEach(function(item){
-             item.style.visibility="visible";
-          })
-        }catch(e){
-           document.querySelectorAll("img").forEach(function(item){
-             item.style.visibility="visible";
-          })
-        }
-      // }
-      function qsa(args){
-         return document.querySelector(args)
-      }
-    })()
-  </script>
 </body>
-
+<script src="/public/js/zepto.min.js"></script>
+<script src="/public/js/main.js"></script>
 </html>
