@@ -9,7 +9,7 @@ axios.interceptors.request.use(function(config) {
     return config;
 },function(error){
     // TODO  with request error
-      // console.log("%c[axios log]before request:\n %o","color:red;font-size:16px;",config);
+      // console.log("%c[axios log]before rquest:\n %o","color:red;font-size:16px;",config);
      return Promise.reject(error);
 });
 
@@ -33,15 +33,11 @@ axios.interceptors.response.use(
       console.log("%cresponse error %o","color:red;font-size:16px;",error.response)
 
       if(error.response.status === 0){
-            // vue.$message.error('登录超时');
-            // loginTimeout();
 
         }
     } else if(error.request) {
       // 500 503 504
       if(error.request.status === 0){
-                //  loginTimeout();
-            // vue.$message.error('登录超时');
 
         }
          // 请求发出了，但是没有接受到 响应
@@ -55,53 +51,6 @@ axios.interceptors.response.use(
      return Promise.reject(error);
 });
 
-//登陸超時提醒
-// function loginTimeout() {
-//   vue.$confirm('登录超时, 请重新登录！', '提示', {
-//         confirmButtonText: '确定',
-//         cancelButtonText: '取消',
-//         type: 'warning'
-//       }).then(() => {
-//
-//         store.dispatch('setLoginOutFlag',true);
-//         let topLevel_domains = ".alipay-eco.com"
-//         console.log(topLevel_domains);
-//         localEvent.clear("ACL");
-//         Cookie.delete("SMJSESSIONID");
-//         Cookie.delete('ALIPAYJSESSIONID');
-//         Cookie.delete("ctoken",topLevel_domains);
-//         Cookie.delete('ECOACLJSESSIONID',topLevel_domains);
-//         Cookie.delete('express1');
-//         let index = window.location.href.indexOf("#");
-//         let baseURL = window.location.href.slice(0,index);
-//         let fullPath = baseURL +"#"+"/login";
-//         window.location.href = fullPath;
-//         // vue.$router.push({path:'/login'});
-//       }).catch(() => {
-//           vue.$message({
-//             type: 'info',
-//             message: '已取消'
-//           });
-//       });
-// }
-// 这里
-function checkErrorCode(response) {
-      if(typeof response.data.meta.code !== "undefined") {
-         if(response.data.meta.code == "0012"){
-             // vue.$message.error('系统异常 code:0012');
-             console.log("%c[axios log]error :\n %o","color:red;font-size:16px;",response);
-            // 错误码定义的提示信息
-         } else if (response.data.meta.code == "2345") {
-            // 错误码定义的提示信息
-         } else {
-              // vue.$message.error('系统异常');
-            // 其他错误处理代码
-         }
-      }else {
-         // vue.$message.error('系统异常 code无效');
-      }
-  };
-
   var mySuccessFn = (response) => {
     const {statusText,status} = response
     let data = response.data
@@ -110,7 +59,6 @@ function checkErrorCode(response) {
           list:data,
         }
       }
-    console.log("))))))))))))))))))))");
     return Promise.resolve({
         success:true,
         message:statusText,
@@ -163,9 +111,6 @@ var request = {
                           }
                       } else if(error.request) {
                         if(error.request.status === 0){
-                                  //  loginTime();
-                              // vue.$message.error('登录超时');
-
                           }
                            // 请求发出了，但是没有接受到 响应
                           //  'error.request' 是一个 浏览器中的XMLHttpRequest 实例，
@@ -175,8 +120,6 @@ var request = {
                           //   vue.$message.error('接口调用失败2222');
                             console.log("Error",error.message);
                         }
-                    // console.log(error.config);
-                  //  console.log("error %o",error);
              }
          )
       },

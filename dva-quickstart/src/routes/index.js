@@ -22,7 +22,7 @@ const Main = ({children,dispatch,app,history,location}) => {
              {
               id:'1',
               bpid:"1",
-              route:"subnav 1",
+              route:"/",
               name:"运营位管理",
               icon:"appstore",
               children:[
@@ -54,7 +54,6 @@ const Main = ({children,dispatch,app,history,location}) => {
               name:"公告管理",
               icon:"calendar",
               route:"/myformlayout"
-
             }
       ]
 

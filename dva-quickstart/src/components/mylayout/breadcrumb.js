@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 import {Breadcrumb} from "antd"
 
 const styles = {
@@ -29,18 +30,58 @@ const Bread = ({ menu,location}) => {
   }
   let menuArray = getTreeToArray(menu),
       current,pathArray = [];
+  console.log(menuArray)
+  console.log(location.pathname);
   for(let index in menuArray) {
     if(menuArray[index].route && menuArray[index].route.indexOf(location.pathname) > -1){
-
+      current = menuArray[index]
+      break
     }
-
   }
+
+const queryArray = (menu,key,pkey) => {
+   return menu.filter(_=>_[pkey] == key )[0] || menu[0]
+
+}
+
+  const getPathArray = (item) => {
+    pathArray.unshift(item)
+    if(item.mpid){
+      getPathArray(queryArray(menuArray,item.mpid,'id'))
+    }
+  }
+
+  if(!current) {
+    pathArray.push(menuArray[0] || {
+      id:1,
+      icon:"laptop",
+      name:"index"
+    })
+
+    pathArray.push({
+      id:404,
+      name:"Not Found"
+    })
+  }else {
+    getPathArray(current)
+    // pathArray.push(current)
+  }
+const breads = pathArray.map((item,key) => {
+  return (
+      <Breadcrumb.Item>
+         <Link to={item.route}>
+          {item.name}
+        </Link>
+      </Breadcrumb.Item>
+  )
+})
+
 
   return (
     <Breadcrumb style={styles}>
-    <Breadcrumb.Item>Home</Breadcrumb.Item>
-    <Breadcrumb.Item>List</Breadcrumb.Item>
-    <Breadcrumb.Item>App</Breadcrumb.Item>
+      {
+        breads
+    }
     </Breadcrumb>
   )
 }
