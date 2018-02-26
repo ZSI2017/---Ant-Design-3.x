@@ -25,7 +25,7 @@ const  Routers = function({ history,app }) {
   const routes =[
       {
        path:"/mytable/:number",
-       component:() => import("./routes/detail")
+       component:() => import("./routes/table")
       },{
         path:"/mytable",
         component:() => import("./routes/table")
