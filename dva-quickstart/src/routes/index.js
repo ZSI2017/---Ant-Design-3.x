@@ -63,6 +63,12 @@ const Main = ({children,dispatch,app,history,location}) => {
               name:"公告管理",
               icon:"calendar",
               route:"/myformlayout"
+            },{
+              id:"3",
+              bpid:"3",
+              name:"退出登录",
+              icon:"calendar",
+              route:"/login"
             }
       ]
 

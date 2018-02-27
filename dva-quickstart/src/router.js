@@ -30,6 +30,9 @@ const  Routers = function({ history,app }) {
         path:"/mytable",
         component:() => import("./routes/table")
       },{
+        path:"/login",
+        component:() => import("./routes/table")
+      },{
          path:"/indexPage/ddd",
          component:()=> import("./routes/IndexPage")
       },{

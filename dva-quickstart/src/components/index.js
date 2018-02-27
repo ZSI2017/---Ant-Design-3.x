@@ -5,6 +5,7 @@ import DetailForm from "./detailForm/detailForm.js"
 import Tabdom from "./tab-top/tabTop.js"
 import Radiotop from "./radio-top/radioTop.js"
 import Content from "./Content/Content.js"
+import Login from "./login"
 
 export {
   ProductList,
