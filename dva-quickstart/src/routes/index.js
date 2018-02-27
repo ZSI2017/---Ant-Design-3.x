@@ -32,7 +32,16 @@ const Main = ({children,dispatch,app,history,location}) => {
                   mpid:"1",
                   name:"首页管理",
                   icon:"",
-                  route:'/mytable'
+                  route:'/mytable',
+                  children:[
+                    {
+                      bpid:"2",
+                      mpid:"21",
+                      name:"详情页",
+                      icon:"",
+                      route:"/mytable/detail",
+                    }
+                  ]
                 },{
                   id:"22",
                   bpid:"2",

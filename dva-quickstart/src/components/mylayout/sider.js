@@ -19,21 +19,20 @@ const Sider = ({navOpenKeys,changeOpenKeys,menu,location,history})=>{
   let currentMenu,defaultSelectedKeys;
   const getCurrentMenu = (menuTree)=> {
       menuTree.forEach((items) => {
-        if(items.children){
-          getCurrentMenu(items.children)
-        }else {
           if(items.route.indexOf(location.pathname)>-1){
             currentMenu = items;
+          }else{
+            if(items.children){
+              getCurrentMenu(items.children)
+            }
           }
-        }
       })
   }
   getCurrentMenu(menuTree);
-
   if(currentMenu){
     defaultSelectedKeys = [String(currentMenu["id"])]
     if(currentMenu.mpid){
-      defaultSelectedKeys.unshift(menuTree[parseFloat(currentMenu.mpid)-1]["id"])
+      defaultSelectedKeys.unshift(menuTree[parseFloat(currentMenu.mpid)%10-1]["id"])
     }
   }
   if(!defaultSelectedKeys){

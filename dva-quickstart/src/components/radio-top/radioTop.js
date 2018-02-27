@@ -12,7 +12,7 @@ class Radiotop extends React.Component {
   }
   handleBtnClick = () => {
     console.log(this.props)
-    this.props.history.push('/mytable/number')
+    this.props.history.push('/mytable/detail')
   }
   onChange = (e) => {
     console.log("radio checked",e.target.value);
