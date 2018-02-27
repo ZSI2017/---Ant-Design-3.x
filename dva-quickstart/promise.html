@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>promise</title>
+  </head>
+  <body>
+    <script>
+      var mypromise = (payload)=>new Promise(resolve=>setTimeout(()=> { resolve(payload)},1000))
+
+let   paramsName = ["new", "activity", "payed"]; // 参数名
+
+     paramsName.forEach((item, index) => {
+       init(item);
+     });
+
+function init(param){
+  var params ={};
+  params.player_type = param;
+  mypromise(params).then((res) => {
+    console.log(res.player_type);
+    // 这里现在结果始终是 "payed"，请教怎样依次遍历出"new", "activity", "payed"
+    })
+}
+// let paramsName = ["new", "activity", "payed"]; // 参数名
+//
+// function init(param) {
+//   var params = {};
+//       params.player_type = param;
+//     return mypromise(params)
+// }
+//
+// Promise.all(paramsName.map((item, index) => {
+//     return init(item);
+// })).then(res=>{
+//     console.log(res);//返回值数组
+// })
+
+
+
+
+    </script>
+  </body>
+</html>
