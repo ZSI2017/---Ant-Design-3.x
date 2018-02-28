@@ -31,7 +31,7 @@ const  Routers = function({ history,app }) {
         component:() => import("./routes/table")
       },{
         path:"/login",
-        component:() => import("./routes/table")
+        component:() => import("./routes/login")
       },{
          path:"/indexPage/ddd",
          component:()=> import("./routes/IndexPage")
