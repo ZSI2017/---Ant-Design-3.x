@@ -22,6 +22,7 @@ const  Routers = function({ history,app }) {
     component: ()=> import('./routes/error')
   })
 
+
   const routes =[
       {
        path:"/mytable/detail",
@@ -31,6 +32,7 @@ const  Routers = function({ history,app }) {
         component:() => import("./routes/table")
       },{
         path:"/login",
+        models:()=>[import('./models/login')],
         component:() => import("./routes/login")
       },{
          path:"/indexPage/ddd",
@@ -67,7 +69,7 @@ const  Routers = function({ history,app }) {
                       />
                     ))}
           </App>
-          </Switch>
+       </Switch>
      </ConnectedRouter>
   );
 }

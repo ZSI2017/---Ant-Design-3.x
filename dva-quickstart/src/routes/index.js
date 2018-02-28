@@ -87,6 +87,13 @@ const Main = ({children,dispatch,app,history,location}) => {
      menu,
      location
    }
+   if(location.pathname.indexOf("/login")>-1) {
+     return (
+       <div>
+          {children}
+       </div>
+     )
+   }
    return (
      <Layout style={{height:"100%"}}>
         <Header />

@@ -5,5 +5,6 @@ module.exports = {
   api:{
     dataApi:`${API}/sourceData`,
     menuApi:`${API}/menuList`
-  }
+  },
+  openPages:["/login"]
 }
