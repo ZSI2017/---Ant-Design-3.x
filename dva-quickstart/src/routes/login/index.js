@@ -2,6 +2,7 @@ import {Mylogin} from "components"
 import React from "react"
 import PropTypes from "prop-types"
 import { connect } from "dva"
+import {routerRedux} from "dva/router"
 import {Form,Icon,Input,Button,Checkbox} from "antd";
 import styles from "./login.less"
 
@@ -10,6 +11,7 @@ const FormItem = Form.Item
 
 const Login = ({
   dispatch,
+  history,
   form:{
     getFieldDecorator,
     validateFieldsAndScroll

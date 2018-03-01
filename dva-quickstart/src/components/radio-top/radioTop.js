@@ -3,6 +3,7 @@ import {Radio,Button,message} from "antd";
 import { RouteContext } from 'react-router'
 import {BrowserRouter,Link } from 'react-router-dom'
 import { routerRedux } from "dva/router"
+import {connect} from "dva"
 
 const RadioGroup = Radio.Group;
 
@@ -12,6 +13,7 @@ class Radiotop extends React.Component {
   }
   handleBtnClick = () => {
     console.log(this.props)
+    // this.props.dispatch(routerRedux.push('/router'))
     this.props.history.push('/mytable/detail')
   }
   onChange = (e) => {
@@ -38,4 +40,4 @@ class Radiotop extends React.Component {
   }
 }
 
-export default Radiotop
+export default connect()(Radiotop)

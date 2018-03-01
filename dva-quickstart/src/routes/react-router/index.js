@@ -52,12 +52,15 @@ const Inbox = ({ match }) => (
   </div>
 )
 
-const routeTest = () => (<BrowserRouter>
+const routeTest = () =>{
+  return (
+  <BrowserRouter>
     <App>
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/inbox" component={Inbox} />
     </App>
   </BrowserRouter>)
+}
 
   export default routeTest
