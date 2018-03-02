@@ -6,6 +6,7 @@ import Tabdom from "./tab-top/tabTop.js"
 import Radiotop from "./radio-top/radioTop.js"
 import Content from "./Content/Content.js"
 import Mylogin from "./login/login.js"
+import Loader from "./Loader/loader.js"
 
 export {
   ProductList,
@@ -15,5 +16,6 @@ export {
   Tabdom,
   Radiotop,
   Content,
-  Mylogin
+  Mylogin,
+  Loader
 }

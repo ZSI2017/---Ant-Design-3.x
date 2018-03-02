@@ -12,7 +12,7 @@ const { Header,Sider,Bread} = Mylayout
 
 
 
-const Main = ({children,dispatch,app,history,location}) => {
+const Main = ({children,dispatch,app,history,location,loading}) => {
   // console.log(location)
   // dispatch({
   //   type: 'app/query'
@@ -117,6 +117,6 @@ const Main = ({children,dispatch,app,history,location}) => {
    )
 }
 
-export default connect( ({app}) => ({
-  app
+export default connect( ({app,loading}) => ({
+  app,loading
 }))(Main)
