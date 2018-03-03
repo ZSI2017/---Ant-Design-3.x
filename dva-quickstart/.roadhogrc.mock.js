@@ -5,7 +5,7 @@ export default {
       id: 1
     },
     {
-      name: 'antd',
+      name: 'antd@3.x',
       id: 2
     }],
 

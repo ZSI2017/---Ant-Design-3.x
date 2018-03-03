@@ -9,13 +9,18 @@ import createHistory from 'history/createHashHistory'
 // 1. Initialize
 // const app = dva();
 const app = dva({
+  ...createLoading({
+    effects:true,
+  }),
   history:createHistory(),
 });
 
 // 2. Plugins
-app.use({
-  ...createLoading()
-});
+// app.use({
+//   ...createLoading({
+//     effects:true,
+//   })
+// });
 
 // 3. Model
 // app.model(require('./models/example').default);

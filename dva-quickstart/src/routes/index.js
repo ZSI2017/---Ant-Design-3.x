@@ -1,6 +1,6 @@
 import React from "react"
 import {Layout,Menu,Icon} from "antd"
-import { Mylayout } from 'components'
+import { Mylayout,Loader} from 'components'
 import {connect} from 'dva'
 import { Switch} from 'dva/router';
 // import classnames from 'classnames';
@@ -18,8 +18,7 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
   //   type: 'app/query'
   // });
   const {navOpenKeys} = app;
-  let  menu = [
-             {
+  let  menu = [{
               id:'1',
               bpid:"1",
               route:"/",
@@ -69,8 +68,7 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
               name:"退出登录",
               icon:"calendar",
               route:"/login"
-            }
-      ]
+            }]
 
   const siderProps = {
      navOpenKeys,
@@ -94,8 +92,11 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
        </div>
      )
    }
+   console.log("______________________________________");
+   console.log(loading.effects['product/data'])
    return (
      <Layout style={{height:"100%"}}>
+
         <Header />
         <Layout>
             <Sider {...siderProps}/>
