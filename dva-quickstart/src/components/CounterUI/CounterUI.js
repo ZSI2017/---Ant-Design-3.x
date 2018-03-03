@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-class Counter extends React.Component {
+class CounterUI extends React.Component {
   render(){
     const {value,onIncreaseClick} = this.props
     return (
@@ -13,9 +13,9 @@ class Counter extends React.Component {
   }
 }
 
-Counter.propTypes = {
+CounterUI.propTypes = {
   value:PropTypes.number,
   onIncreaseClick:PropTypes.func
 }
 
-export default Counter
+export default CounterUI

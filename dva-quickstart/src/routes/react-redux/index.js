@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Counter} from 'components'
+import { CounterUI} from 'components'
 import {createStore} from "redux"
 import {Provider,connect} from "react-redux"
 
@@ -33,7 +33,7 @@ function mapStateToProps(state) {
 // Map Redux actions to component propTypes
 function mapDispatchToProps(dispatch) {
   return {
-    onINcreaseClick:() => dispatch(increaseAction)
+    onIncreaseClick:() => dispatch(increaseAction)
   }
 }
 
@@ -42,12 +42,12 @@ function mapDispatchToProps(dispatch) {
 const App = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Counter)
+)(CounterUI)
 
 
 const Mycounter = () => (
   <Provider store = {store}>
-    <App />
+    <App store = {store}/>
 
   </Provider>
 )
