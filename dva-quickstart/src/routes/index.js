@@ -65,9 +65,21 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
             },{
               id:"3",
               bpid:"3",
+              name:"redux实践",
+              icon:"calendar",
+              route:"/redux"
+            },{
+              id:"4",
+              bpid:"4",
               name:"退出登录",
               icon:"calendar",
               route:"/login"
+            },{
+              id:"5",
+              bpid:"5",
+              name:"react-redux",
+              icon:"calendar",
+              route:"/reactRedux"
             }]
 
   const siderProps = {

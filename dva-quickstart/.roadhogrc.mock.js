@@ -51,6 +51,20 @@ export default {
   // GET POST 可省略
   '/api/users/1': { id: 1 },
 
+  'GET /api/mytable':(req,res) => {
+
+    const data = [];
+    for (let i = 0; i < 36; i++) {
+      data.push({
+        key: i,
+        name: `Edward King ${i}`,
+        age: 32,
+        address: `London, Park Lane no. ${i}`,
+      });
+    }
+     res.send(data)
+  },
+
   // 支持自定义函数，API 参考 express@4
   'POST /api/users/create': (req, res) => { res.end('OK'); },
 };

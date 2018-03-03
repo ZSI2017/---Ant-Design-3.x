@@ -4,7 +4,8 @@ module.exports = {
   name:"sendex-mng",
   api:{
     dataApi:`${API}/sourceData`,
-    menuApi:`${API}/menuList`
+    menuApi:`${API}/menuList`,
+    myTableApi:`${API}/mytable`
   },
   openPages:["/login"]
 }

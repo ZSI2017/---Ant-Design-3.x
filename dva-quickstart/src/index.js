@@ -13,6 +13,9 @@ const app = dva({
     effects:true,
   }),
   history:createHistory(),
+  onError(e,dispatch) {
+    console.log(e.message);
+  }
 });
 
 // 2. Plugins
