@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {Counter} from "component"
+import { Counter} from 'components'
 import {createStore} from "redux"
 import {Provider,connect} from "react-redux"
 
