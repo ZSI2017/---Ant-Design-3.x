@@ -80,6 +80,12 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
               name:"react-redux",
               icon:"calendar",
               route:"/reactRedux"
+            },{
+              id:"6",
+              bpid:"6",
+              name:"redux-sages",
+              icon:"calendar",
+              route:"/reduxSage"
             }]
 
   const siderProps = {

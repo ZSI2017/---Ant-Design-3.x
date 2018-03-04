@@ -8,6 +8,7 @@ import Content from "./Content/Content.js"
 import Mylogin from "./login/login.js"
 import Loader from "./Loader/loader.js"
 import CounterUI from "./CounterUI/CounterUI.js"
+import Countersages from "./sagesCounter/counter.js"
 
 export {
   ProductList,
@@ -19,5 +20,6 @@ export {
   Content,
   Mylogin,
   Loader,
-  CounterUI
+  CounterUI,
+  Countersages
 }

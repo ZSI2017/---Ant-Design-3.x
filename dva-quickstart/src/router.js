@@ -46,6 +46,9 @@ const  Routers = function({ history,app }) {
          path:"/indexPage/ddd",
          component:()=> import("./routes/IndexPage")
       },{
+         path:'/reduxSage',
+         component: () => import("./routes/redux-sage")
+      },{
          path:"/router",
          component:()=> import("./routes/react-router")
       },{

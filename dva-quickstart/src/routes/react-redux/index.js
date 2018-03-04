@@ -48,7 +48,6 @@ const App = connect(
 const Mycounter = () => (
   <Provider store = {store}>
     <App store = {store}/>
-
   </Provider>
 )
 

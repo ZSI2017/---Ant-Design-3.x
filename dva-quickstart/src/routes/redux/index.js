@@ -3,7 +3,7 @@ import {reactRedux} from "dva"
 import {createStore} from "redux";
 
 const   Myredux = ()=>{
-  let state = 0;
+ let state = 0;
  const counter = (state = 0,action) => {
     switch(action.type) {
       case "INCREMENT":
@@ -13,8 +13,8 @@ const   Myredux = ()=>{
        default:
           return state;
     }
-
   }
+
   console.log(reactRedux);
   const store = createStore(counter);
 
@@ -32,7 +32,6 @@ const   Myredux = ()=>{
        <p><a href="https://cn.redux.js.org/"> Redux中文文档</a></p>
        <button onClick = {handleDecrement}>减一</button>
        <button onClick = {handleIncrement}>加一</button>
-
     </div>
   )
 }
