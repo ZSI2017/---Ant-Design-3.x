@@ -63,9 +63,9 @@ const  Routers = function({ history,app }) {
 
   return (
     <ConnectedRouter history={history} >
-    <Switch>
-        <App>
-                <Route  exact path = "/"  render = {() => (<Redirect to="/mytable"/>)}/>
+     <Switch>
+       <App>
+            <Route  exact path = "/"  render = {() => (<Redirect to="/mytable"/>)}/>
                     {
                       routes.map(({ path,...dynamics },index)=>(
                       <Route
@@ -79,7 +79,7 @@ const  Routers = function({ history,app }) {
                       />
                     ))}
           </App>
-       </Switch>
+        </Switch>
      </ConnectedRouter>
   );
 }
