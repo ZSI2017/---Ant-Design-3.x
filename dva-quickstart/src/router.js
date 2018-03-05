@@ -26,7 +26,6 @@ const  Routers = function({ history,app }) {
   const routes =[
       {
        path:"/mytable/detail",
-
        component:() => import("./routes/detail")
       },{
         path:"/mytable",
@@ -37,7 +36,7 @@ const  Routers = function({ history,app }) {
         models:()=>[import('./models/login')],
         component:() => import("./routes/login")
       },{
-         path:'/redux',
+         path:'/predux',
          component: () => import("./routes/redux")
       },{
          path:'/reactRedux',

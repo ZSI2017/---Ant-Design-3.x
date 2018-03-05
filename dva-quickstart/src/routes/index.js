@@ -65,9 +65,9 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
             },{
               id:"3",
               bpid:"3",
-              name:"redux实践",
+              name:"实践 redu",
               icon:"calendar",
-              route:"/redux"
+              route:"/predux"
             },{
               id:"4",
               bpid:"4",
