@@ -1,26 +1,22 @@
 import React from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames"
+import {Spin} from "antd";
 import styles from "./loader.scss"
 
 const Loader = ({spinning}) => {
-  if(spining){
+  if(spinning){
    return (
-     <div style={styles.main}>
-        <h1> show loading</h1>
+     <div className={styles.main}>
+        <Spin size="large"/>
      </div>
    )
-  }else {
-    return(
-      <div>
-         <h1> hide loading</h1>
-      </div>
-    )
   }
+  return <div></div>
 }
 
 Loader.propTypes = {
-  spining:PropTypes.bool
+  spinning:PropTypes.bool
 }
 
 export default Loader

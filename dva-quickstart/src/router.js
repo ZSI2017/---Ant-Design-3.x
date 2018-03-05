@@ -26,17 +26,28 @@ const  Routers = function({ history,app }) {
   const routes =[
       {
        path:"/mytable/detail",
+
        component:() => import("./routes/detail")
       },{
         path:"/mytable",
+        models:()=>[import('./models/mytable')],
         component:() => import("./routes/table")
       },{
         path:"/login",
         models:()=>[import('./models/login')],
         component:() => import("./routes/login")
       },{
+         path:'/redux',
+         component: () => import("./routes/redux")
+      },{
+         path:'/reactRedux',
+         component: () => import("./routes/react-redux")
+      },{
          path:"/indexPage/ddd",
          component:()=> import("./routes/IndexPage")
+      },{
+         path:'/reduxSage',
+         component: () => import("./routes/redux-sage")
       },{
          path:"/router",
          component:()=> import("./routes/react-router")

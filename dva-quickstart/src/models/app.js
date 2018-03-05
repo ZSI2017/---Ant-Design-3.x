@@ -45,11 +45,9 @@ export default {
     },
   },
   effects:{
-      * query({
-         payload,
-      },{put,call,select}) {
+      * query({payload},{put,call,select}) {
         const result = yield call(getmenu,payload);
-
+        alert("asdfasdfasdf")
         console.log(result);
         const {success,list} = result
         if(success) {

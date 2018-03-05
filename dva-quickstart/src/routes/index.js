@@ -1,6 +1,6 @@
 import React from "react"
 import {Layout,Menu,Icon} from "antd"
-import { Mylayout } from 'components'
+import { Mylayout,Loader} from 'components'
 import {connect} from 'dva'
 import { Switch} from 'dva/router';
 // import classnames from 'classnames';
@@ -18,8 +18,7 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
   //   type: 'app/query'
   // });
   const {navOpenKeys} = app;
-  let  menu = [
-             {
+  let  menu = [{
               id:'1',
               bpid:"1",
               route:"/",
@@ -66,11 +65,28 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
             },{
               id:"3",
               bpid:"3",
+              name:"redux实践",
+              icon:"calendar",
+              route:"/redux"
+            },{
+              id:"4",
+              bpid:"4",
               name:"退出登录",
               icon:"calendar",
               route:"/login"
-            }
-      ]
+            },{
+              id:"5",
+              bpid:"5",
+              name:"react-redux",
+              icon:"calendar",
+              route:"/reactRedux"
+            },{
+              id:"6",
+              bpid:"6",
+              name:"redux-sages",
+              icon:"calendar",
+              route:"/reduxSage"
+            }]
 
   const siderProps = {
      navOpenKeys,
@@ -94,8 +110,11 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
        </div>
      )
    }
+   console.log("______________________________________");
+   console.log(loading.effects['product/data'])
    return (
      <Layout style={{height:"100%"}}>
+
         <Header />
         <Layout>
             <Sider {...siderProps}/>

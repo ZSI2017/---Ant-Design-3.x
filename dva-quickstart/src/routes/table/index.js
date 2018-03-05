@@ -1,6 +1,7 @@
 import {Table,Icon,Divider,message} from "antd";
+import {connect} from "dva";
 import {Link} from "react-router-dom"
-import { Tabdom,Radiotop} from 'components'
+import { Tabdom,Radiotop,Loader} from 'components'
 import './index.scss'
 
 const columns = [
@@ -61,33 +62,23 @@ const columns = [
     )
   }]
 
-
-const data = [];
-for (let i = 0; i < 36; i++) {
-  data.push({
-    key: i,
-    name: `Edward King ${i}`,
-    age: 32,
-    address: `London, Park Lane no. ${i}`,
-  });
-}
-
-
-const Mytable = ({children,history})=>{
+const Mytable = ({children,history,mytable,dispatch,loading})=>{
   const onPageChange = (pageNumber)=> {
     message.info(`pageNumber: ${pageNumber}`)
   }
   const handleSize = (current,pageSize) => {
     message.info(`current: ${current}--pageSize:${pageSize} `)
   }
+  const {list} =  mytable;
     return (
-      <div>
+      <div style={{position:"relative"}}>
+      <Loader spinning = {loading.effects['mytable/query']}/>
        <Tabdom />
        <Radiotop history = {history}/>
         <Table
          bordered
          columns={columns}
-         dataSource={data}
+         dataSource={list}
          scroll={{ x: 1300 }}
          pagination={{
               showQuickJumper:true,
@@ -102,4 +93,4 @@ const Mytable = ({children,history})=>{
     )
 }
 
-export default Mytable;
+export default connect(({mytable,loading})=>({mytable,loading}))(Mytable);

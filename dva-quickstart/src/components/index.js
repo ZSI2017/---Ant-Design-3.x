@@ -7,6 +7,8 @@ import Radiotop from "./radio-top/radioTop.js"
 import Content from "./Content/Content.js"
 import Mylogin from "./login/login.js"
 import Loader from "./Loader/loader.js"
+import CounterUI from "./CounterUI/CounterUI.js"
+import Countersages from "./sagesCounter/counter.js"
 
 export {
   ProductList,
@@ -17,5 +19,7 @@ export {
   Radiotop,
   Content,
   Mylogin,
-  Loader
+  Loader,
+  CounterUI,
+  Countersages
 }

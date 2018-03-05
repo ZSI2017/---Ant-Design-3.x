@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Table, Popconfirm, Button } from 'antd';
+import {Loader} from "components"
+import {connect} from "dva"
+import styles from "./productlist.scss"
 
-const ProductList = ({ onDelete, products }) => {
+const ProductList = ({ onDelete, products,loading }) => {
 
   const columns = [{
     title: 'Name',
@@ -20,10 +23,13 @@ const ProductList = ({ onDelete, products }) => {
     },
   }];
   return (
-    <Table
-      dataSource={products}
-      columns={columns}
-    />
+    <div className={styles.main}>
+      <Loader spinning = {loading.effects['product/data']}/>
+      <Table
+        dataSource={products}
+        columns={columns}
+      />
+    </div>
   );
 };
 
@@ -32,4 +38,4 @@ ProductList.propTypes = {
   products: PropTypes.array.isRequired,
 };
 
-export default ProductList;
+export default connect(({loading}) => ({loading}))(ProductList);
