@@ -1,10 +1,12 @@
 export default {
   // 支持值为 Object 和 Array
   'GET /api/sourceData': [{
+      key:"1",
       name: 'dva',
       id: 1
     },
     {
+      key:"2",
       name: 'antd@3.x',
       id: 2
     }],

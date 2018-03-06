@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import {Layout} from "antd"
 import { Mylayout} from 'components'
 import {connect} from 'dva'
@@ -128,6 +129,15 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
         </Layout>
      </Layout>
    )
+}
+
+Main.propTypes = {
+  children:PropTypes.element.isRequired,
+  dispatch:PropTypes.func,
+  app:PropTypes.object,
+  history:PropTypes.object,
+  location:PropTypes.object,
+  loading:PropTypes.object
 }
 
 export default connect( ({app,loading}) => ({

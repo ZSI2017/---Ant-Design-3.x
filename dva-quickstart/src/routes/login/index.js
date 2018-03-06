@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "dva"
 import {Form,Icon,Input,Button} from "antd";
 import styles from "./login.less"
-
+import PropTypes from "prop-types"
 const FormItem = Form.Item
 
 
@@ -79,7 +79,13 @@ const Login = ({
   )
 }
 
+Login.propTypes = {
+  dispatch:PropTypes.func,
+  history:PropTypes.object,
+  form:PropTypes.object
+}
 const WrappedNormalLoginForm = Form.create()(Login);
+
 
 
 // <Mylogin add={"div"}/>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types"
 import { connect } from 'dva';
 import styles from './IndexPage.css';
 
@@ -16,6 +17,8 @@ function IndexPage({location}) {
 }
 
 IndexPage.propTypes = {
+  location:PropTypes.object
 };
 
+// ui 组件 连接成 容器组件
 export default connect()(IndexPage);

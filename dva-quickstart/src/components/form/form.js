@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"
 import { Form, DatePicker, TimePicker, Button } from 'antd';
 const FormItem = Form.Item;
 const MonthPicker = DatePicker.MonthPicker;
@@ -110,6 +111,10 @@ class TimeRelatedForm extends React.Component {
       </Form>
     );
   }
+}
+
+TimeRelatedForm.propTypes = {
+  form:PropTypes.object
 }
 
 const WrappedTimeRelatedForm = Form.create()(TimeRelatedForm);

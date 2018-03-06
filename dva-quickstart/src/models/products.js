@@ -18,7 +18,6 @@ export default {
     'delete' (state, {
       payload: id
     }) {
-      console.log("from products delete: ---- ----- " + id)
       return state.filter(item => item.id !== id);
     },
     'updateState'(state,{payload}){
@@ -29,14 +28,9 @@ export default {
     * data({
       payload,
     }, { put,call, select }) {
-      console.log("before  models/products")
       const result = yield call(tableData,payload)
-      // const result = yield call(delay,6000)
-      console.log(" after models/products");
-      console.log(result);
       const {success,list} = result
       if(success) {
-        console.log("before put")
         yield put({
           type:'updateState',
           payload:list

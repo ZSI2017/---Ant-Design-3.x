@@ -2,6 +2,7 @@ import {Table,Icon,Divider,message} from "antd";
 import {connect} from "dva";
 import {Link} from "react-router-dom"
 import { Tabdom,Radiotop,Loader} from 'components'
+import PropTypes from "prop-types"
 import './index.scss'
 
 const columns = [
@@ -91,6 +92,14 @@ const Mytable = ({children,history,mytable,dispatch,loading})=>{
          />
        </div>
     )
+}
+
+Mytable.propTypes = {
+   children:PropTypes.element.isRequired,
+   history:PropTypes.object,
+   mytable:PropTypes.object,
+   dispatch:PropTypes.func,
+   loading:PropTypes.object
 }
 
 export default connect(({mytable,loading})=>({mytable,loading}))(Mytable);
