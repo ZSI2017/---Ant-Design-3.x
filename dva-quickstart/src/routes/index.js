@@ -2,7 +2,6 @@ import React from "react"
 import {Layout} from "antd"
 import { Mylayout} from 'components'
 import {connect} from 'dva'
-// import classnames from 'classnames';
 
 const {Content} = Layout;
 const { Header,Sider,Bread} = Mylayout
@@ -10,10 +9,6 @@ const { Header,Sider,Bread} = Mylayout
 
 
 const Main = ({children,dispatch,app,history,location,loading}) => {
-  // console.log(location)
-  // dispatch({
-  //   type: 'app/query'
-  // });
   const {navOpenKeys} = app;
   let  menu = [{
               id:'1',
@@ -69,25 +64,25 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
               id:"4",
               bpid:"4",
               name:"退出登录",
-              icon:"calendar",
+              icon:"user-delete",
               route:"/login"
             },{
               id:"5",
               bpid:"5",
               name:"react-redux",
-              icon:"calendar",
+              icon:"api",
               route:"/reactRedux"
             },{
               id:"6",
               bpid:"6",
               name:"redux-sages",
-              icon:"calendar",
+              icon:"profile",
               route:"/reduxSage"
             },{
               id:"7",
               bpid:"7",
               name:"redux-LiftCycle",
-              icon:"calendar",
+              icon:"shop",
               route:"/react-LifeCycle"
             }]
 
