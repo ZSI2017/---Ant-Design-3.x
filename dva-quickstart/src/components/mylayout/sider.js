@@ -1,5 +1,5 @@
 import React from "react"
-import {Layout,Menu,Breadcrumb,Icon} from "antd"
+import {Layout,Menu,Icon} from "antd"
 import {Link} from "react-router-dom"
 
 
@@ -10,7 +10,6 @@ const Sider = ({navOpenKeys,changeOpenKeys,menu,location,history})=>{
   const menuTree = menu
   const onOpenChange = (openKeys) => {
     let nextOpenKeys = [];
-    let openKeysLength = openKeys.length;
     nextOpenKeys= openKeys.slice(-1)
     changeOpenKeys(nextOpenKeys)
   }

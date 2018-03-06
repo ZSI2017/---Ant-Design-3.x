@@ -1,4 +1,3 @@
-import dva from "dva";
 import {table} from "services/tableList"
 
 export default {

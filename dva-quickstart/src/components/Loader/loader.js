@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import classNames from "classnames"
 import {Spin} from "antd";
 import styles from "./loader.scss"
 

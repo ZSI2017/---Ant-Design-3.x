@@ -1,9 +1,6 @@
-import {Mylogin} from "components"
 import React from "react"
-import PropTypes from "prop-types"
 import { connect } from "dva"
-import {routerRedux} from "dva/router"
-import {Form,Icon,Input,Button,Checkbox} from "antd";
+import {Form,Icon,Input,Button} from "antd";
 import styles from "./login.less"
 
 const FormItem = Form.Item

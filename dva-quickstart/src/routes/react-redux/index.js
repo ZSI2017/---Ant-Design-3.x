@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { CounterUI} from 'components'
 import {createStore} from "redux"
 import {Provider,connect} from "react-redux"

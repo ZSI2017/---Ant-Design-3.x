@@ -1,13 +1,10 @@
 import React from "react"
-import {Layout,Menu,Icon} from "antd"
-import { Mylayout,Loader} from 'components'
+import {Layout} from "antd"
+import { Mylayout} from 'components'
 import {connect} from 'dva'
-import { Switch} from 'dva/router';
 // import classnames from 'classnames';
-import styles from './index.scss';
 
-const {SubMenu} = Menu;
-const {Content,Footer} = Layout;
+const {Content} = Layout;
 const { Header,Sider,Bread} = Mylayout
 
 
@@ -86,6 +83,12 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
               name:"redux-sages",
               icon:"calendar",
               route:"/reduxSage"
+            },{
+              id:"7",
+              bpid:"7",
+              name:"redux-LiftCycle",
+              icon:"calendar",
+              route:"/react-LifeCycle"
             }]
 
   const siderProps = {
@@ -110,8 +113,6 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
        </div>
      )
    }
-   console.log("______________________________________");
-   console.log(loading.effects['product/data'])
    return (
      <Layout style={{height:"100%"}}>
 
@@ -120,7 +121,6 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
             <Sider {...siderProps}/>
             <Layout style={{ padding: '0 24px 24px' }}>
                <Bread {...breadProps} />
-               <Switch>
                <Content
                  style= {{
                     background: '#fff',
@@ -129,7 +129,6 @@ const Main = ({children,dispatch,app,history,location,loading}) => {
                     border:"1px solid rgb(211, 220, 230)" }}>
                  {children}
                </Content>
-               </Switch>
            </Layout>
         </Layout>
      </Layout>

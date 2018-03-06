@@ -30,8 +30,6 @@ const Bread = ({ menu,location}) => {
   }
   let menuArray = getTreeToArray(menu),
       current,pathArray = [];
-  console.log(menuArray)
-  console.log(location.pathname);
   for(let index in menuArray) {
     if(menuArray[index].route && menuArray[index].route.indexOf(location.pathname) > -1){
       current = menuArray[index]
@@ -40,7 +38,7 @@ const Bread = ({ menu,location}) => {
   }
 
 const queryArray = (menu,key,pkey) => {
-   return menu.filter(_=>_[pkey] == key )[0] || menu[0]
+   return menu.filter(_=>_[pkey] === key )[0] || menu[0]
 
 }
 
@@ -68,8 +66,8 @@ const queryArray = (menu,key,pkey) => {
   }
 const breads = pathArray.map((item,key) => {
   return (
-      <Breadcrumb.Item>
-         <Link to={item.route}>
+      <Breadcrumb.Item key={key}>
+         <Link to={item.route} key={key}>
           {item.name}
         </Link>
       </Breadcrumb.Item>

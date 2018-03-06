@@ -13,7 +13,7 @@ const columns = [
     title:"运营图",
     dataIndex:"name",
     key:"name2",
-    render:text => <img src={text} width={40} height={40}/>,
+    render:text => <img alt="运营图" src={text} width={40} height={40}/>,
   },{
     title:"链接",
     dataIndex:"name",
@@ -53,9 +53,9 @@ const columns = [
       <span>
        <Link to={`/mytable/${record.key}`}>Edit</Link>
        <Divider type="vertical" />
-       <a href="javascript:void(0)" >Delete </a>
+       <a  >Delete </a>
        <Divider type="vertical" />
-       <a href="javascript:void(0)" className="ant-dropdown-link">
+       <a  className="ant-dropdown-link">
          More actions <Icon type="down"/>
        </a>
       </span>

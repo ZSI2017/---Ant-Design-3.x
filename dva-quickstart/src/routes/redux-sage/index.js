@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import {Countersages} from "components"
 import {createStore,applyMiddleware} from "redux"
 

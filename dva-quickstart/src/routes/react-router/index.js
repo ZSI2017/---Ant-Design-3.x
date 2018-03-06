@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 // import { Router, Route, Link, Switch } from 'react-router';
 import {
-  HashRouter,
   Route,
   Link,
-  Switch,
   BrowserRouter
 } from 'react-router-dom';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {data:[]}
+  }
+
+  componentWillUnmount(){
+    console.log("componentWillUnmount")
+  }
+  componentDidMount(){
+    console.log("componentDidMount");
+  }
   render() {
     return (
       <div>

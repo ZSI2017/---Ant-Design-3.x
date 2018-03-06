@@ -13,7 +13,8 @@ export function* watchIncrementAsync() {
 }
 
 export function* helloSage() {
-  console.log("Hello Sages!")
+  yield  console.log("Hello Sages!")
+
 }
 
 export default function* rootSaga() {

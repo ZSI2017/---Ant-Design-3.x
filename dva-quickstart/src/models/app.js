@@ -1,4 +1,3 @@
-import dva from "dva";
 import queryString from 'query-string'
 import { getmenu } from "services/menu"
 

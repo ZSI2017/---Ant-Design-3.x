@@ -1,12 +1,6 @@
 import React from 'react';
-import { Router, Route, Switch,Redirect,routerRedux} from 'dva/router';
-import {BrowserRouter } from 'react-router-dom'
+import { Route, Switch,Redirect,routerRedux} from 'dva/router';
 import dynamic from "dva/dynamic"
-import IndexPage from './routes/IndexPage';
-import Products from './routes/Products';
-import Mytable from "./routes/table"
-import Myformlayout from "./routes/myForm"
-import internalDetailForm from "./routes/detail"
 import App from "./routes/index"
 
 
@@ -15,12 +9,14 @@ const { ConnectedRouter } = routerRedux
 
 
 
+// ,{
+//   path:"/react-router-redux",
+//   component:() => import("./routes/react-router-redux")
+// }
+
 
 const  Routers = function({ history,app }) {
-  const error = dynamic({
-    app,
-    component: ()=> import('./routes/error')
-  })
+  
 
 
   const routes =[
@@ -59,6 +55,9 @@ const  Routers = function({ history,app }) {
       },{
         path:"/myformlayout",
         component:() => import("./routes/myForm")
+      },{
+        path:"/react-LifeCycle",
+        component:() => import("./routes/react-Life-Cycle")
       }]
 
   return (
@@ -77,7 +76,8 @@ const  Routers = function({ history,app }) {
                           ...dynamics,
                         })}
                       />
-                    ))}
+                    ))
+                  }
           </App>
         </Switch>
      </ConnectedRouter>

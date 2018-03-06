@@ -1,8 +1,5 @@
 import React from "react";
 import {Radio,Button,message} from "antd";
-import { RouteContext } from 'react-router'
-import {BrowserRouter,Link } from 'react-router-dom'
-import { routerRedux } from "dva/router"
 import {connect} from "dva"
 
 const RadioGroup = Radio.Group;

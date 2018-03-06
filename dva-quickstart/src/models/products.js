@@ -1,7 +1,6 @@
-import dva from 'dva';
 import {tableData} from "services/tableData"
 
-const delay = timeout =>new Promise(resolve => setTimeout(()=>{resolve("test promise")},timeout));
+// const delay = timeout =>new Promise(resolve => setTimeout(()=>{resolve("test promise")},timeout));
 
 export default {
   namespace: 'product',
