@@ -1,4 +1,4 @@
-const Mock = require("mockjs")
+// const Mock = require("mockjs")
 
 const config = require('../utils/config')
 

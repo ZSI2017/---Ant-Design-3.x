@@ -6,12 +6,18 @@ import {syncHistoryWithStore,routerReducer} from "react-router-redux"
 
 
 // Add the reducer to your store on the `routing` key
+// ...reducers,
 const store = createStore(
   combineReducers({
-    ...reducers,
     routing: routerReducer
   })
 )
+
+const App = () => {
+  return (
+    <h1>app</h1>
+  )
+}
 
 
 // Create an enhanced history that syncs navigation events with the store
@@ -23,8 +29,8 @@ const ReactRouterRedux = () => {
     <Provider store={store}>
       <Router history = {history}>
         <Route path = "/" component = {App}>
-          <Route path = "foo" component = {Foo} />
-          <Route path = "bar" component = {Bar} />
+          <Route path = "foo" component = {App} />
+          <Route path = "bar" component = {App} />
         </Route>
       </Router>
     </Provider>
